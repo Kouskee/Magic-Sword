@@ -11,7 +11,8 @@
                     "id": "17b2cfe1-f4f3-40d3-b03e-5287d677c8c2",
                     "expectedControlType": "Stick",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "CameraMove",
@@ -19,7 +20,8 @@
                     "id": "1d08986c-adfb-4c61-b723-fc08059f7677",
                     "expectedControlType": "Stick",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -27,7 +29,8 @@
                     "id": "549e5812-1f34-4ffb-a003-8de8fbb8746d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Run",
@@ -35,7 +38,8 @@
                     "id": "54bb350a-b19e-48ce-bd5c-d34b1f27352e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Aim",
@@ -43,7 +47,8 @@
                     "id": "da71ba83-fb7a-432d-9d9c-b7116ef50d2c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Shoot",
@@ -51,7 +56,8 @@
                     "id": "25265aad-fffe-4746-b2aa-947a0a90925b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "InputNumbers",
@@ -59,7 +65,8 @@
                     "id": "d02d5400-2ca7-4295-820e-bf1cd4718105",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -307,21 +314,10 @@
                 },
                 {
                     "name": "",
-                    "id": "7d245846-ce1a-4eeb-973a-7874a577c666",
-                    "path": "<Keyboard>/0",
-                    "interactions": "",
-                    "processors": "Scale(factor=0)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3fbe0b05-dfa6-456f-a8b3-962769b2f55a",
                     "path": "<Keyboard>/1",
                     "interactions": "",
-                    "processors": "Scale",
+                    "processors": "Scale(factor=0)",
                     "groups": "Keyboard and mouse",
                     "action": "InputNumbers",
                     "isComposite": false,
@@ -332,7 +328,7 @@
                     "id": "52f35000-5be4-47e7-a9d8-c698888bc20b",
                     "path": "<Keyboard>/2",
                     "interactions": "",
-                    "processors": "Scale(factor=2)",
+                    "processors": "Scale",
                     "groups": "Keyboard and mouse",
                     "action": "InputNumbers",
                     "isComposite": false,
@@ -343,7 +339,7 @@
                     "id": "e9ecbaf5-aee6-44d8-93fc-068f5500b5c0",
                     "path": "<Keyboard>/3",
                     "interactions": "",
-                    "processors": "Scale(factor=3)",
+                    "processors": "Scale(factor=2)",
                     "groups": "Keyboard and mouse",
                     "action": "InputNumbers",
                     "isComposite": false,
@@ -354,7 +350,7 @@
                     "id": "c22af116-86d4-49c6-970c-2370db37395a",
                     "path": "<Keyboard>/4",
                     "interactions": "",
-                    "processors": "Scale(factor=4)",
+                    "processors": "Scale(factor=3)",
                     "groups": "Keyboard and mouse",
                     "action": "InputNumbers",
                     "isComposite": false,
@@ -362,63 +358,8 @@
                 },
                 {
                     "name": "",
-                    "id": "c5df5a53-1d6d-4621-93c9-788f05e03d4b",
-                    "path": "<Keyboard>/5",
-                    "interactions": "",
-                    "processors": "Scale(factor=5)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ce4022cd-226b-4b5e-a307-c11563a8536c",
-                    "path": "<Keyboard>/6",
-                    "interactions": "",
-                    "processors": "Scale(factor=6)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2bc13aa6-8713-4f00-91f4-d324d6ea13f4",
-                    "path": "<Keyboard>/7",
-                    "interactions": "",
-                    "processors": "Scale(factor=7)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7e29bc13-b89d-4fd3-a7da-0fa701ad8339",
-                    "path": "<Keyboard>/8",
-                    "interactions": "",
-                    "processors": "Scale(factor=8)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "08a3aeee-23ee-487a-a653-bac2bfd261dc",
-                    "path": "<Keyboard>/9",
-                    "interactions": "",
-                    "processors": "Scale(factor=9)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "db0a6f7a-c13d-45dd-a8ef-89f0f0a96577",
-                    "path": "<Keyboard>/numpad0",
+                    "id": "0bca1152-0c82-4707-9469-adcef2ddd27e",
+                    "path": "<Keyboard>/numpad1",
                     "interactions": "",
                     "processors": "Scale(factor=0)",
                     "groups": "Keyboard and mouse",
@@ -428,8 +369,8 @@
                 },
                 {
                     "name": "",
-                    "id": "73201662-e936-41fd-8949-4db1ba438955",
-                    "path": "<Keyboard>/numpad1",
+                    "id": "d7c754e1-f0f1-4195-a08f-e6a2434e9af0",
+                    "path": "<Keyboard>/numpad2",
                     "interactions": "",
                     "processors": "Scale",
                     "groups": "Keyboard and mouse",
@@ -439,8 +380,8 @@
                 },
                 {
                     "name": "",
-                    "id": "5b92712b-c9d2-490b-9150-21633821dd3c",
-                    "path": "<Keyboard>/numpad2",
+                    "id": "d175b001-0580-477e-aee9-8a6a197f0e98",
+                    "path": "<Keyboard>/numpad3",
                     "interactions": "",
                     "processors": "Scale(factor=2)",
                     "groups": "Keyboard and mouse",
@@ -450,76 +391,10 @@
                 },
                 {
                     "name": "",
-                    "id": "c288e2f3-9141-4cde-91e9-0fb8ddfba9fd",
-                    "path": "<Keyboard>/numpad3",
-                    "interactions": "",
-                    "processors": "Scale(factor=3)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ed568fca-3b28-463e-a87c-93212cd9aa05",
+                    "id": "7bc897c1-aa29-4fa2-8d66-8d5bcecd4a71",
                     "path": "<Keyboard>/numpad4",
                     "interactions": "",
-                    "processors": "Scale(factor=4)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "29ded03c-ea6a-45df-9cb3-6354010d6bc3",
-                    "path": "<Keyboard>/numpad5",
-                    "interactions": "",
-                    "processors": "Scale(factor=5)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f7f2a1b8-f48c-4133-acbd-e2a34392a24b",
-                    "path": "<Keyboard>/numpad6",
-                    "interactions": "",
-                    "processors": "Scale(factor=6)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e80ef31a-9bbe-43c0-aae9-fb78be5de970",
-                    "path": "<Keyboard>/numpad7",
-                    "interactions": "",
-                    "processors": "Scale(factor=7)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a423f4ed-5a73-4111-a903-38e5e7663580",
-                    "path": "<Keyboard>/numpad8",
-                    "interactions": "",
-                    "processors": "Scale(factor=8)",
-                    "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "60c538d3-0d89-4470-b7b8-6ab8650599c4",
-                    "path": "<Keyboard>/numpad9",
-                    "interactions": "",
-                    "processors": "Scale(factor=9)",
+                    "processors": "Scale(factor=3)",
                     "groups": "Keyboard and mouse",
                     "action": "InputNumbers",
                     "isComposite": false,

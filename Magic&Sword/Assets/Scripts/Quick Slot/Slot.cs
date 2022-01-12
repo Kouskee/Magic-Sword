@@ -1,11 +1,16 @@
 using UnityEngine;
 
-public class Slot : MonoBehaviour
+public class Slot
 {
-    public AbstractSpell _ability;
-
-    public void SetAbilityToSlot(AbstractSpell ability)
+    public IAbility Ability;
+    
+    public Slot(IAbility ability)
     {
-        _ability = ability;
+        Ability = ability;
+    }
+
+    public void SetAbilityToSlot(IAbility ability)
+    {
+        Ability = ability;
     }
 }

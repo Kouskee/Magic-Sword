@@ -9,13 +9,13 @@ public class AbilityInput : MonoBehaviour
     {
         _inputPlayer = new InputPlayer();
         _inputPlayer.CharacterControls.Enable();
-        _inputPlayer.CharacterControls.InputNumbers.performed += AbilityPerformed;
+        _inputPlayer.CharacterControls.InputNumbers.performed += OnAbilityPerformed;
     }
 
-    private void AbilityPerformed(InputAction.CallbackContext context)
+    private void OnAbilityPerformed(InputAction.CallbackContext context)
     {
         int id = (int)context.ReadValue<float>();
-        if(id >= 1 && id <= 4 ) UseAbility(id);
+        UseAbility(id);
     }
     
     private void UseAbility(int id)
@@ -25,7 +25,7 @@ public class AbilityInput : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputPlayer.CharacterControls.InputNumbers.performed -= AbilityPerformed;
+        _inputPlayer.CharacterControls.InputNumbers.performed -= OnAbilityPerformed;
         _inputPlayer.CharacterControls.Disable();
     }
 }

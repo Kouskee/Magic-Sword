@@ -1,23 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameInstaller : MonoBehaviour
 {
-    [SerializeField] private CastAbility _castAbility;
-    [SerializeField] private SlotManager _slotManager;
+    [SerializeField] private Player _player;
     [SerializeField] private Energy _energy;
-    
+
+    [SerializeField] private int _capacity;
+
+    [SerializeField] private AbilityFactoryInstaller _abilityFactoryInstaller;
+    [SerializeField] private InventoryInstaller _inventoryInstaller;
+
+    private AbilityFactoryFacade _abilityFacade;
+    private Inventory _inventory;
+
     private void Start()
     {
         Install();
-        
-        Destroy(gameObject);
     }
 
     private void Install()
     {
-        _castAbility.Install(_slotManager, _energy);
+        _abilityFacade = _abilityFactoryInstaller.Install();
+
+        var abilities = new IAbility[_capacity];
+        for (int i = 0; i < _capacity; i++)
+        {
+            var ability = _abilityFacade.Create(i);
+            ability.Use();
+            abilities[i] = ability;
+        }
+
+        _inventory = _inventoryInstaller.Install(abilities, _capacity);
+
+        _player.Initialize(_energy, _inventory);
     }
 }

@@ -1,18 +1,20 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "AbilityAttribute",menuName = "Ability/AbilityAttribute")]
-public class AbilityConfig : ScriptableObject
+[CreateAssetMenu(fileName = "DimpleAbilityConfig",menuName = "Ability/DimpleAbilityConfig")]
+public class DimpleAbilityConfig : ScriptableObject
 {
     [Header("Description")]
-    [SerializeField] private string _name;
+    [SerializeField] private int _id;
+    [SerializeField] private float _damage;
     [SerializeField] private Sprite _icon;
 
     [Header("Attribute")]
     [SerializeField] private float _cost;
     [SerializeField] private float _castRate;
     
-    public string Name => _name;
+    public int Id => _id;
+    public float Damage => _damage;
     public Sprite Icon => _icon;
     public float Cost => _cost;
     public float Cooldown => 1/_castRate;
