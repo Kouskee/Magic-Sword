@@ -10,7 +10,7 @@ public class DimpleAbilityFactory : IAbilityFactory
         _dimpleAbilityConfigs = dimpleAbilityConfigs.ToArray();
     }
 
-    public bool CanCreate(int id)
+    public bool CanCreate(string id)
     {
         var canCreate = false;
         foreach (var config in _dimpleAbilityConfigs)
@@ -21,7 +21,7 @@ public class DimpleAbilityFactory : IAbilityFactory
         return canCreate;
     }
 
-    public IAbility Create(int id)
+    public IAbility Create(string id)
     {
         var config = _dimpleAbilityConfigs.Single(s => s.Id == id);
         float cooldown = config.Cooldown;

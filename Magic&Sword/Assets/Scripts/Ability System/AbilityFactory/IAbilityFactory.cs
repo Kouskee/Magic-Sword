@@ -1,5 +1,5 @@
 ﻿public interface IAbilityFactory
 {
-    bool CanCreate(int id);
-    IAbility Create(int id);
+    bool CanCreate(string id);
+    IAbility Create(string id);
 }

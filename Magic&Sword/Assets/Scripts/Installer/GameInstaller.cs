@@ -5,8 +5,7 @@ public class GameInstaller : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Energy _energy;
-
-    [SerializeField] private int _capacity;
+    [SerializeField] private string[] _id;
 
     [SerializeField] private AbilityFactoryInstaller _abilityFactoryInstaller;
     [SerializeField] private InventoryInstaller _inventoryInstaller;
@@ -23,15 +22,14 @@ public class GameInstaller : MonoBehaviour
     {
         _abilityFacade = _abilityFactoryInstaller.Install();
 
-        var abilities = new IAbility[_capacity];
-        for (int i = 0; i < _capacity; i++)
+        var abilities = new IAbility[_id.Length];
+        for (int i = 0; i < _id.Length; i++)
         {
-            var ability = _abilityFacade.Create(i);
-            ability.Use();
+            var ability = _abilityFacade.Create(_id[i]);
             abilities[i] = ability;
         }
 
-        _inventory = _inventoryInstaller.Install(abilities, _capacity);
+        _inventory = _inventoryInstaller.Install(abilities, _id.Length);
 
         _player.Initialize(_energy, _inventory);
     }

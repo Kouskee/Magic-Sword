@@ -10,7 +10,7 @@ public class SimpleAbilityFactory : IAbilityFactory
         _simpleAbilityConfigs = simpleAbilityConfigs.ToArray();
     }
 
-    public bool CanCreate(int id)
+    public bool CanCreate(string id)
     {
         var canCreate = false;
         foreach (var config in _simpleAbilityConfigs)
@@ -21,7 +21,7 @@ public class SimpleAbilityFactory : IAbilityFactory
         return canCreate;
     }
 
-    public IAbility Create(int id)
+    public IAbility Create(string id)
     {
         var config = _simpleAbilityConfigs.Single(s => s.Id == id);
         float cooldown = config.Cooldown;

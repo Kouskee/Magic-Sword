@@ -1603,7 +1603,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993286726}
-  m_LocalRotation: {x: 0.11873752, y: 0.000000004271165, z: -5.1076077e-10, w: 0.9929257}
+  m_LocalRotation: {x: 0.11873752, y: -0.0000000042711643, z: 5.1076066e-10, w: 0.9929257}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1687,7 +1687,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 903702882}
   _energy: {fileID: 903702884}
-  _capacity: 2
+  _id:
+  - Ability/dimple/0
+  - Ability/simple/0
   _abilityFactoryInstaller: {fileID: 1103745742}
   _inventoryInstaller: {fileID: 1103745741}
 --- !u!4 &1103745739
@@ -2216,7 +2218,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.11873754, y: 0.000000006917086, z: -1.9435084e-10, w: 0.9929257}
+  m_LocalRotation: {x: 0.11873754, y: -0.0000000069170865, z: 1.9435326e-10, w: 0.9929257}
   m_LocalPosition: {x: 0, y: 4.0389996, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2409,7 +2411,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952342150}
-  m_LocalRotation: {x: 0.16018221, y: 0.0000000084921, z: -0.0000000013780781, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018221, y: -0.000000008492103, z: 0.0000000013780784, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

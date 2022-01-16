@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea30ebf0a13b0a2479cb325a8aa9e03f, type: 3}
   m_Name: DimpleAbilityConfig
   m_EditorClassIdentifier: 
-  _id: 0
+  _id: Ability/dimple/0
   _damage: 3
   _icon: {fileID: 0}
   _cost: 0

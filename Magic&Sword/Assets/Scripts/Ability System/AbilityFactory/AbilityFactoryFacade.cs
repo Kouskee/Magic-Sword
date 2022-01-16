@@ -9,7 +9,7 @@ public class AbilityFactoryFacade
         _abilityFactories = abilityFactories;
     }
 
-    public IAbility Create(int id)
+    public IAbility Create(string id)
     {
         foreach (var abilityFactory in _abilityFactories)
         {

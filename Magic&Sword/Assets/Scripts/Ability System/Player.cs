@@ -30,9 +30,4 @@ public class Player : MonoBehaviour
         if(ability.CanUse())
             ability.Use();
     }
-
-    private void OnDisable()
-    {
-        EventManager.OnPressedAbilityKeyboard -= OnGetPressedAbility;
-    }
 }
