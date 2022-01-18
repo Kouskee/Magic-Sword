@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -20,14 +19,20 @@ public class Player : MonoBehaviour
     private void OnGetPressedAbility(int id)
     {
         var ability = _inventory.GetItem(id);
+        float cost = ability.Cost;
 
-        if (ability != null)
-            CallUseAbility(ability);
+        if (_energy.CanCast(cost))
+            CallUseAbility(ability, cost);
+            
     }
 
-    private void CallUseAbility(IAbility ability)
+    private void CallUseAbility(IAbility ability, float cost)
     {
-        if(ability.CanUse())
+        if (ability.CanUse())
+        {
             ability.Use();
+            _energy.StealEnergy(cost);
+        }
+            
     }
 }

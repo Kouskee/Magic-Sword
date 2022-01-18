@@ -24,7 +24,6 @@ public class SimpleAbilityFactory : IAbilityFactory
     public IAbility Create(string id)
     {
         var config = _simpleAbilityConfigs.Single(s => s.Id == id);
-        float cooldown = config.Cooldown;
-        return new SimpleSpeelAbility(config.Damage, cooldown);
+        return new SimpleSpeelAbility(config.Damage, config.Cooldown, config.Cost);
     }
 }

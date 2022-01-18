@@ -6,12 +6,13 @@ public class SimpleSpeelAbility : IAbility
     private readonly float _cooldown;
     private float _canCastAfterTime = float.MinValue;
 
-    public SimpleSpeelAbility(float damage, float cooldown)
+    public SimpleSpeelAbility(float damage, float cooldown, float cost)
     {
         _damage = damage;
         _cooldown = cooldown;
+        this.Cost = cost;
     }
-    
+
     public bool CanUse()
     {
         if (_canCastAfterTime <= Time.time)
@@ -19,10 +20,13 @@ public class SimpleSpeelAbility : IAbility
             _canCastAfterTime = _cooldown + Time.time;
             return true;
         }
+
         return false;
     }
 
-    public void Use() 
+    public float Cost { get; }
+
+    public void Use()
     {
         Debug.Log(_damage);
     }
