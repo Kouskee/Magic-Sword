@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class AbilityFactoryInstaller : MonoBehaviour
 {
-    [SerializeField] private SimpleAbilityConfig[] _simpleSpellConfig;
+    [SerializeField] private FlyingStoneConfig[] _flyingStoneConfig;
     [SerializeField] private DimpleAbilityConfig[] _dimpleSpellConfig;
     
     [SerializeField] private InventoryInstaller _inventoryInstaller;
     
     public AbilityFactoryFacade Install()
     {
-        var abilityFactory = new SimpleAbilityFactory(_simpleSpellConfig);
+        var flyingStoneFactory = new FlyingStoneFactory(_flyingStoneConfig);
         var dimpleFactory = new DimpleAbilityFactory(_dimpleSpellConfig);
         var abillityFactories = new IAbilityFactory[]
         {
             dimpleFactory,
-            abilityFactory,
+            flyingStoneFactory,
         };
         var abilityFacade = new AbilityFactoryFacade(abillityFactories);
 

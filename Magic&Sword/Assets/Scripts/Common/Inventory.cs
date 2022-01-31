@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory
 {
-    private Slot[] _slots;
+    private readonly Slot[] _slots;
 
     public Inventory(Slot[] slots)
     {
@@ -13,9 +13,6 @@ public class Inventory
 
     public IAbility GetItem(int idPressedButton)
     {
-        if (_slots.Length > idPressedButton)
-            return _slots[idPressedButton].Ability;
-
-        return null;
+        return _slots.Length > idPressedButton ? _slots[idPressedButton].Ability : null;
     }
 }

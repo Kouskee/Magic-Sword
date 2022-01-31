@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,9 +6,13 @@ public class AbilityInput : MonoBehaviour
 {
     private InputPlayer _inputPlayer;
 
-    private void OnEnable()
+    private void Awake()
     {
         _inputPlayer = new InputPlayer();
+    }
+
+    private void OnEnable()
+    {
         _inputPlayer.CharacterControls.Enable();
         _inputPlayer.CharacterControls.InputNumbers.performed += OnAbilityPerformed;
     }

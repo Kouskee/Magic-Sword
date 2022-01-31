@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class InventoryInstaller : MonoBehaviour
+public class InventoryInstaller
 {
     public Inventory Install(IAbility[] abilities, int capacity)
     {
