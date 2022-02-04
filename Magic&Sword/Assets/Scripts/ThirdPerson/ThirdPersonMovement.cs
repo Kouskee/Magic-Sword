@@ -103,7 +103,7 @@ public class ThirdPersonMovement : MonoBehaviour
         float noSmoothTurn = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetAnlge, ref _turnSmoothVelocity, 0);
         transform.rotation = Quaternion.Euler(0f, _smoothTurn, 0f);
 
-        #region резкий поворот
+        #region СЂРµР·РєРёР№ РїРѕРІРѕСЂРѕС‚
         float Difference = Mathf.Round(Mathf.Abs(noSmoothTurn - _smoothTurn));
         if (Difference > 60 && _isRunPressed)
             SlowDown();
@@ -113,7 +113,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void handleJump()
     {
-        if (_isJumpPressed && _isGroundedCheck) // прыжок
+        if (_isJumpPressed && _isGroundedCheck) // РїСЂС‹Р¶РѕРє
         {
             ClearSpeed();
 
@@ -126,7 +126,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (_isRunPressed)
         {
-            Controller.Move(_moveDir.normalized * _speedRun * Time.deltaTime); // бег
+            Controller.Move(_moveDir.normalized * _speedRun * Time.deltaTime); // Р±РµРі
             _speedRun = Mathf.Clamp(_speedRun + 3f * Time.deltaTime, _speedWalk, _maxSpeedRun);
         }
     }
@@ -134,7 +134,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         if (_isMovementPressed && !_isRunPressed)
         {
-            Controller.Move(_moveDir.normalized * _speedWalk * Time.deltaTime); // ходьба
+            Controller.Move(_moveDir.normalized * _speedWalk * Time.deltaTime); // С…РѕРґСЊР±Р°
             _speedWalk = Mathf.Clamp(_speedWalk + 2f * Time.deltaTime, _defaultSpeedW / 2, _defaultSpeedW);
             _speedRun = _defaultSpeedR;
         }

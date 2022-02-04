@@ -29,6 +29,6 @@ public class DimpleSpeelAbility : IAbility
 
     public void Use()
     {
-        Debug.Log(_damage);
+        
     }
 }

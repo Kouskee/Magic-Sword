@@ -30,6 +30,6 @@ public class FlyingStone : IAbility
 
     public void Use()
     {
-        Debug.Log(_damage);
+        
     }
 }

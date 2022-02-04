@@ -28,18 +28,9 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
             ""id"": ""952b3276-4bab-4032-8dae-fc7c9ad7b245"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""17b2cfe1-f4f3-40d3-b03e-5287d677c8c2"",
-                    ""expectedControlType"": ""Stick"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""CameraMove"",
-                    ""type"": ""Value"",
-                    ""id"": ""1d08986c-adfb-4c61-b723-fc08059f7677"",
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -49,33 +40,6 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""549e5812-1f34-4ffb-a003-8de8fbb8746d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Run"",
-                    ""type"": ""Button"",
-                    ""id"": ""54bb350a-b19e-48ce-bd5c-d34b1f27352e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Aim"",
-                    ""type"": ""Button"",
-                    ""id"": ""da71ba83-fb7a-432d-9d9c-b7116ef50d2c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""25265aad-fffe-4746-b2aa-947a0a90925b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -99,7 +63,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -110,7 +74,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -121,7 +85,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -132,7 +96,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -143,7 +107,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -154,7 +118,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -165,7 +129,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -176,7 +140,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -187,7 +151,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -198,7 +162,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -209,62 +173,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""ArrowsKeyboard"",
-                    ""id"": ""2d933d85-3b65-46a5-9347-8c7668d07fa3"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""381418e3-e4b0-4558-a694-6fb66ef03515"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""90d9f2d3-3f69-49a0-b487-aede5ed6fbc3"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""b0f68c96-13ac-469e-927e-fe64b8b3615c"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""CameraMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""5cef93c1-d172-41b8-8bef-bbbc8b340471"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""CameraMove"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -287,50 +196,6 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""43ee7eac-cd17-4cf0-be75-784cc4fc1646"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4272edce-cda4-451c-aaee-6538ef98a7f0"",
-                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Run"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7866b39c-b1cb-4201-8e20-fe863d4ad5fc"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""73c94c6d-8c60-48b8-bcfc-017294e44672"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -452,12 +317,8 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
 }");
         // CharacterControls
         m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
-        m_CharacterControls_Movement = m_CharacterControls.FindAction("Movement", throwIfNotFound: true);
-        m_CharacterControls_CameraMove = m_CharacterControls.FindAction("CameraMove", throwIfNotFound: true);
+        m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
-        m_CharacterControls_Run = m_CharacterControls.FindAction("Run", throwIfNotFound: true);
-        m_CharacterControls_Aim = m_CharacterControls.FindAction("Aim", throwIfNotFound: true);
-        m_CharacterControls_Shoot = m_CharacterControls.FindAction("Shoot", throwIfNotFound: true);
         m_CharacterControls_InputNumbers = m_CharacterControls.FindAction("InputNumbers", throwIfNotFound: true);
     }
 
@@ -518,23 +379,15 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     // CharacterControls
     private readonly InputActionMap m_CharacterControls;
     private ICharacterControlsActions m_CharacterControlsActionsCallbackInterface;
-    private readonly InputAction m_CharacterControls_Movement;
-    private readonly InputAction m_CharacterControls_CameraMove;
+    private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_Jump;
-    private readonly InputAction m_CharacterControls_Run;
-    private readonly InputAction m_CharacterControls_Aim;
-    private readonly InputAction m_CharacterControls_Shoot;
     private readonly InputAction m_CharacterControls_InputNumbers;
     public struct CharacterControlsActions
     {
         private @InputPlayer m_Wrapper;
         public CharacterControlsActions(@InputPlayer wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_CharacterControls_Movement;
-        public InputAction @CameraMove => m_Wrapper.m_CharacterControls_CameraMove;
+        public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
-        public InputAction @Run => m_Wrapper.m_CharacterControls_Run;
-        public InputAction @Aim => m_Wrapper.m_CharacterControls_Aim;
-        public InputAction @Shoot => m_Wrapper.m_CharacterControls_Shoot;
         public InputAction @InputNumbers => m_Wrapper.m_CharacterControls_InputNumbers;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
@@ -545,24 +398,12 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_CharacterControlsActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMovement;
-                @CameraMove.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnCameraMove;
-                @CameraMove.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnCameraMove;
-                @CameraMove.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnCameraMove;
+                @Move.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
                 @Jump.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
-                @Run.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRun;
-                @Run.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRun;
-                @Run.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRun;
-                @Aim.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAim;
-                @Aim.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAim;
-                @Aim.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAim;
-                @Shoot.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
                 @InputNumbers.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
                 @InputNumbers.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
                 @InputNumbers.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
@@ -570,24 +411,12 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
-                @CameraMove.started += instance.OnCameraMove;
-                @CameraMove.performed += instance.OnCameraMove;
-                @CameraMove.canceled += instance.OnCameraMove;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Run.started += instance.OnRun;
-                @Run.performed += instance.OnRun;
-                @Run.canceled += instance.OnRun;
-                @Aim.started += instance.OnAim;
-                @Aim.performed += instance.OnAim;
-                @Aim.canceled += instance.OnAim;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
                 @InputNumbers.started += instance.OnInputNumbers;
                 @InputNumbers.performed += instance.OnInputNumbers;
                 @InputNumbers.canceled += instance.OnInputNumbers;
@@ -615,12 +444,8 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     }
     public interface ICharacterControlsActions
     {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnCameraMove(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnRun(InputAction.CallbackContext context);
-        void OnAim(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
         void OnInputNumbers(InputAction.CallbackContext context);
     }
 }
