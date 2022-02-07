@@ -6,16 +6,16 @@ public class InputController : MonoBehaviour
 {
     [Header("Character Input Values")]
     public Vector2 move;
-    public bool jump;
+    public bool strafe;
 
     public void OnMove(InputValue value)
     {
         MoveInput(value.Get<Vector2>());
     }
 
-    public void OnJump(InputValue value)
+    public void OnStrafe(InputValue value)
     {
-        JumpInput(value.isPressed);
+        StrafeInput(value.isPressed);
     }
 
 
@@ -24,8 +24,8 @@ public class InputController : MonoBehaviour
         move = newMoveDirection;
     } 
     
-    public void JumpInput(bool newJumpState)
+    public void StrafeInput(bool newStrafeState)
     {
-        jump = newJumpState;
+        strafe = newStrafeState;
     }
 }

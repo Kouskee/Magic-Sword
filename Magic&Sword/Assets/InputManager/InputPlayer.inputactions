@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "549e5812-1f34-4ffb-a003-8de8fbb8746d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "InputNumbers",
                     "type": "Button",
                     "id": "d02d5400-2ca7-4295-820e-bf1cd4718105",
@@ -31,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Strafe",
+                    "type": "Value",
+                    "id": "5806e598-bf55-434f-93b8-986e2e0ada97",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -157,28 +157,6 @@
                 },
                 {
                     "name": "",
-                    "id": "782dae90-3cfa-4dba-aa83-e6532ab14de5",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7cd7a05d-0d5d-4294-95fd-18bb607430b7",
-                    "path": "<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "3fbe0b05-dfa6-456f-a8b3-962769b2f55a",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -262,6 +240,17 @@
                     "processors": "Scale(factor=3)",
                     "groups": "Keyboard and mouse",
                     "action": "InputNumbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bdb6679-9838-4883-ae7f-729c02cee1ee",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and mouse",
+                    "action": "Strafe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

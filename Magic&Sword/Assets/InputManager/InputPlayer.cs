@@ -37,15 +37,6 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""549e5812-1f34-4ffb-a003-8de8fbb8746d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""InputNumbers"",
                     ""type"": ""Button"",
                     ""id"": ""d02d5400-2ca7-4295-820e-bf1cd4718105"",
@@ -53,6 +44,15 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Strafe"",
+                    ""type"": ""Value"",
+                    ""id"": ""5806e598-bf55-434f-93b8-986e2e0ada97"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -179,28 +179,6 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""782dae90-3cfa-4dba-aa83-e6532ab14de5"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7cd7a05d-0d5d-4294-95fd-18bb607430b7"",
-                    ""path"": ""<HID::DragonRise Inc.   Generic   USB  Joystick  >/button3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3fbe0b05-dfa6-456f-a8b3-962769b2f55a"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
@@ -286,6 +264,17 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""action"": ""InputNumbers"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8bdb6679-9838-4883-ae7f-729c02cee1ee"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Strafe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -318,8 +307,8 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
         // CharacterControls
         m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
-        m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
         m_CharacterControls_InputNumbers = m_CharacterControls.FindAction("InputNumbers", throwIfNotFound: true);
+        m_CharacterControls_Strafe = m_CharacterControls.FindAction("Strafe", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -380,15 +369,15 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CharacterControls;
     private ICharacterControlsActions m_CharacterControlsActionsCallbackInterface;
     private readonly InputAction m_CharacterControls_Move;
-    private readonly InputAction m_CharacterControls_Jump;
     private readonly InputAction m_CharacterControls_InputNumbers;
+    private readonly InputAction m_CharacterControls_Strafe;
     public struct CharacterControlsActions
     {
         private @InputPlayer m_Wrapper;
         public CharacterControlsActions(@InputPlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
-        public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
         public InputAction @InputNumbers => m_Wrapper.m_CharacterControls_InputNumbers;
+        public InputAction @Strafe => m_Wrapper.m_CharacterControls_Strafe;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,12 +390,12 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
-                @Jump.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJump;
                 @InputNumbers.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
                 @InputNumbers.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
                 @InputNumbers.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
+                @Strafe.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
+                @Strafe.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
+                @Strafe.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -414,12 +403,12 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
                 @InputNumbers.started += instance.OnInputNumbers;
                 @InputNumbers.performed += instance.OnInputNumbers;
                 @InputNumbers.canceled += instance.OnInputNumbers;
+                @Strafe.started += instance.OnStrafe;
+                @Strafe.performed += instance.OnStrafe;
+                @Strafe.canceled += instance.OnStrafe;
             }
         }
     }
@@ -445,7 +434,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     public interface ICharacterControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
         void OnInputNumbers(InputAction.CallbackContext context);
+        void OnStrafe(InputAction.CallbackContext context);
     }
 }

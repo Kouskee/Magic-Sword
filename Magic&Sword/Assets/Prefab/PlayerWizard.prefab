@@ -522,18 +522,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaa33ca836474e41bd5e5333487155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 0}
-  _moveSpeed: 1
-  _rotationSmoothTime: 0.12
+  _enemyRoot: {fileID: 0}
+  _moveSpeed: 3
+  _turnSmoothTime: 0.12
   _speedChangeRate: 10
-  _jumpHeight: 1.2
+  _strafeSpeed: 35
   _gravity: -15
-  _grounded: 1
-  _groundedOffset: -0.2
-  _groundedRadius: 0.28
-  _groundLayers:
-    serializedVersion: 2
-    m_Bits: 64
+  _durationStrafe: 0.4
+  _cooldownStrafe: 2
+  _canStrafeAfterTime: 0
 --- !u!114 &1925640646558292006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
-  jump: 0
+  strafe: 0
 --- !u!114 &1981614519107381813
 MonoBehaviour:
   m_ObjectHideFlags: 0
