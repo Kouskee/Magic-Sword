@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "InputNumbers",
+                    "name": "CastAbility",
                     "type": "Button",
                     "id": "d02d5400-2ca7-4295-820e-bf1cd4718105",
                     "expectedControlType": "Button",
@@ -162,7 +162,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=0)",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -173,7 +173,7 @@
                     "interactions": "",
                     "processors": "Scale",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -184,7 +184,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=2)",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -195,7 +195,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=3)",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -206,7 +206,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=0)",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -217,7 +217,7 @@
                     "interactions": "",
                     "processors": "Scale",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -228,7 +228,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=2)",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -239,7 +239,7 @@
                     "interactions": "",
                     "processors": "Scale(factor=3)",
                     "groups": "Keyboard and mouse",
-                    "action": "InputNumbers",
+                    "action": "CastAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

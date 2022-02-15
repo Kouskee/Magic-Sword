@@ -17,10 +17,10 @@ public class FlyingStoneAnimationAbility : MonoBehaviour, IAnimationAbility
         DOTween.Init();
     }
 
-    public void Settings(Transform transformPlayer)
+    public void Settings(Transform player, Transform enemy)
     {
-        _prefab.position = transformPlayer.position + Vector3.up * 1.5f;
-        _prefab.Translate(transformPlayer.forward * 10f);
+        _prefab.position = enemy.position + Vector3.up * 1.5f;
+        _prefab.Translate(player.forward);
 
         DoMove();
     }

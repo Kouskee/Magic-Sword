@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +7,16 @@ using UnityEngine.Serialization;
 
 public class GameInstaller : MonoBehaviour
 {
-    [SerializeField] private PlayerAbility _playerAbility;
-    [SerializeField] private Energy _energy;
-    [SerializeField] private SpawnAbility _spawnAbility;
-    [SerializeField] private ThirdPersonMovement _thirdPersonMovement;
+    [FoldoutGroup("Players")][SerializeField] private PlayerController _playerController;
+    [FoldoutGroup("Players")][SerializeField] private RandomMoveBot _enemy;
     
-    [SerializeField] private GameObject[] _prefabAbility;
-    [SerializeField, Min(4)] private string[] _id;
+    [FoldoutGroup("Ability")][SerializeField] private PlayerAbility _playerAbility;
+    [FoldoutGroup("Ability")][SerializeField] private SpawnAbility _spawnAbility;
+    [FoldoutGroup("Ability")][SerializeField] private Animator _animator;
+    [FoldoutGroup("Ability")][SerializeField] private Energy _energy;
+    
+    [FoldoutGroup("Settings Ability")][SerializeField] private GameObject[] _prefabAbility;
+    [FoldoutGroup("Settings Ability")][SerializeField, Min(4)] private string[] _id;
 
     private AbilityFactoryInstaller _abilityFactoryInstaller;
     private AbilityFactoryFacade _abilityFacade;
@@ -45,7 +49,7 @@ public class GameInstaller : MonoBehaviour
 
         _inventory = _inventoryInstaller.Install(abilities, _id.Length);
 
-        _playerAbility.Initialize(_energy, _inventory, _spawnAbility);
-        _spawnAbility.Initialize(_thirdPersonMovement);
+        _playerAbility.Initialize(_energy, _inventory, _spawnAbility, _animator);
+        _spawnAbility.Initialize(_playerController, _enemy);
     }
 }

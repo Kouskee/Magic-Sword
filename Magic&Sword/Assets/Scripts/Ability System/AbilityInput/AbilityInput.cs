@@ -14,12 +14,17 @@ public class AbilityInput : MonoBehaviour
     private void OnEnable()
     {
         _inputPlayer.CharacterControls.Enable();
-        _inputPlayer.CharacterControls.InputNumbers.performed += OnAbilityPerformed;
+        _inputPlayer.CharacterControls.CastAbility.performed += OnCastAbility;
+    }
+    
+    private void OnCastAbility(InputAction.CallbackContext obj)
+    {
+        AbilityPerformed(obj.ReadValue<float>());
     }
 
-    private void OnAbilityPerformed(InputAction.CallbackContext context)
+    private void AbilityPerformed(float button)
     {
-        int id = (int)context.ReadValue<float>();
+        int id = (int)button;
         UseAbility(id);
     }
     
@@ -30,7 +35,7 @@ public class AbilityInput : MonoBehaviour
 
     private void OnDisable()
     {
-        _inputPlayer.CharacterControls.InputNumbers.performed -= OnAbilityPerformed;
+        _inputPlayer.CharacterControls.CastAbility.performed -= OnCastAbility;
         _inputPlayer.CharacterControls.Disable();
     }
 }

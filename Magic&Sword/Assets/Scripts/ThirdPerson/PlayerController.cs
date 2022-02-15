@@ -37,10 +37,10 @@ public class PlayerController : MonoBehaviour
     private bool _canStrafe;
 
     // animator
-    private float _velocity, _velocityY;
+    private float _velocity;
     private bool _hasAnimator;
-    private static readonly int anim_Speed = Animator.StringToHash("Speed");
-    private static readonly int anim_Strafe = Animator.StringToHash("Strafe");
+    private static readonly int AnimSpeed = Animator.StringToHash("Speed");
+    private static readonly int AnimStrafe = Animator.StringToHash("Strafe");
 
     //common
     private Animator _animator;
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         _velocity = Mathf.Lerp(_velocity, Mathf.Abs(_input.move.magnitude), Time.deltaTime * _speedChangeRate);
 
         if (_hasAnimator)
-            _animator.SetFloat(anim_Speed, _velocity);
+            _animator.SetFloat(AnimSpeed, _velocity);
     }
 
     private void Strafe()
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
                 _player.DORotate(new Vector3(0, _player.transform.eulerAngles.y + 360, 0), _durationStrafe, RotateMode.FastBeyond360).SetEase(Ease.Linear);
                 _player.DOScale(new Vector3(0.7f, 0.7f, 1), _durationStrafe * 0.5f).SetLoops(2, LoopType.Yoyo);
             
-                if (_hasAnimator) _animator.SetBool(anim_Strafe, true);
+                if (_hasAnimator) _animator.SetBool(AnimStrafe, true);
 
                 _timerStrafe = _durationStrafe;
                 _canStrafe = false;
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             _timerStrafe -= Time.deltaTime;
         else
         {
-            if (_hasAnimator) _animator.SetBool(anim_Strafe, false);
+            if (_hasAnimator) _animator.SetBool(AnimStrafe, false);
             _canRotate = true;
         }
     }

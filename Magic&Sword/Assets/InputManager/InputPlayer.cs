@@ -37,7 +37,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""InputNumbers"",
+                    ""name"": ""CastAbility"",
                     ""type"": ""Button"",
                     ""id"": ""d02d5400-2ca7-4295-820e-bf1cd4718105"",
                     ""expectedControlType"": ""Button"",
@@ -184,7 +184,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=0)"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -195,7 +195,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -206,7 +206,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=2)"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -217,7 +217,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=3)"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -228,7 +228,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=0)"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -239,7 +239,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -250,7 +250,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=2)"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -261,7 +261,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": ""Scale(factor=3)"",
                     ""groups"": ""Keyboard and mouse"",
-                    ""action"": ""InputNumbers"",
+                    ""action"": ""CastAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -307,7 +307,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
         // CharacterControls
         m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
-        m_CharacterControls_InputNumbers = m_CharacterControls.FindAction("InputNumbers", throwIfNotFound: true);
+        m_CharacterControls_CastAbility = m_CharacterControls.FindAction("CastAbility", throwIfNotFound: true);
         m_CharacterControls_Strafe = m_CharacterControls.FindAction("Strafe", throwIfNotFound: true);
     }
 
@@ -369,14 +369,14 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CharacterControls;
     private ICharacterControlsActions m_CharacterControlsActionsCallbackInterface;
     private readonly InputAction m_CharacterControls_Move;
-    private readonly InputAction m_CharacterControls_InputNumbers;
+    private readonly InputAction m_CharacterControls_CastAbility;
     private readonly InputAction m_CharacterControls_Strafe;
     public struct CharacterControlsActions
     {
         private @InputPlayer m_Wrapper;
         public CharacterControlsActions(@InputPlayer wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
-        public InputAction @InputNumbers => m_Wrapper.m_CharacterControls_InputNumbers;
+        public InputAction @CastAbility => m_Wrapper.m_CharacterControls_CastAbility;
         public InputAction @Strafe => m_Wrapper.m_CharacterControls_Strafe;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
@@ -390,9 +390,9 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMove;
-                @InputNumbers.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
-                @InputNumbers.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
-                @InputNumbers.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInputNumbers;
+                @CastAbility.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnCastAbility;
+                @CastAbility.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnCastAbility;
+                @CastAbility.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnCastAbility;
                 @Strafe.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
                 @Strafe.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
                 @Strafe.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
@@ -403,9 +403,9 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @InputNumbers.started += instance.OnInputNumbers;
-                @InputNumbers.performed += instance.OnInputNumbers;
-                @InputNumbers.canceled += instance.OnInputNumbers;
+                @CastAbility.started += instance.OnCastAbility;
+                @CastAbility.performed += instance.OnCastAbility;
+                @CastAbility.canceled += instance.OnCastAbility;
                 @Strafe.started += instance.OnStrafe;
                 @Strafe.performed += instance.OnStrafe;
                 @Strafe.canceled += instance.OnStrafe;
@@ -434,7 +434,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     public interface ICharacterControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnInputNumbers(InputAction.CallbackContext context);
+        void OnCastAbility(InputAction.CallbackContext context);
         void OnStrafe(InputAction.CallbackContext context);
     }
 }
