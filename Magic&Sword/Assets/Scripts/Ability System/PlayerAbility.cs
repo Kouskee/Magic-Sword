@@ -41,8 +41,7 @@ public class PlayerAbility : MonoBehaviour
         
         bool isCast = _animator.GetBool(IsCast);
         if(isCast) return;
-
-        _spawnAbility.SpawnAbilityPrefab(prefab);
+        _spawnAbility.SpawnAbilityPrefab(prefab, ability);
         ability.Use();
         _energy.StealEnergy(cost);
 

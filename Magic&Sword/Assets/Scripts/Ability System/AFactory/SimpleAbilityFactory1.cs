@@ -24,6 +24,6 @@ public class DimpleAbilityFactory : IAbilityFactory
     public IAbility Create(string id)
     {
         var config = _dimpleAbilityConfigs.Single(s => s.Id == id);
-        return new DimpleSpeelAbility(config.Damage, config.Cooldown, config.Cost);
+        return new DimpleAbility(config.Damage, config.Cooldown, config.Cost);
     }
 }

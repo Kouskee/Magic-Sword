@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                          new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-        _velocity = Mathf.Lerp(_velocity, Mathf.Abs(_input.move.magnitude), Time.deltaTime * _speedChangeRate);
+        _velocity = Mathf.Lerp(_velocity, targetSpeed, Time.deltaTime * _speedChangeRate);
 
         if (_hasAnimator)
             _animator.SetFloat(AnimSpeed, _velocity);

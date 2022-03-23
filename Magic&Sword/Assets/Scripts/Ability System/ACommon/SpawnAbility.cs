@@ -12,10 +12,12 @@ public class SpawnAbility : MonoBehaviour
         _enemy = enemy;
     }
 
-    public void SpawnAbilityPrefab(GameObject prefabAility)
+    public void SpawnAbilityPrefab(GameObject prefabAility, IAbility ability)
     {
         var prefab = Instantiate(prefabAility);
-        prefab.TryGetComponent<IAnimationAbility>(out var animationAbilityn);
-        animationAbilityn.Settings(_player.transform, _enemy.transform);
+        prefab.TryGetComponent<IAnimationAbility>(out var animationAbility);
+        prefab.TryGetComponent<TriggerZone>(out var triggerZone);
+        triggerZone.Initialize(ability);
+        animationAbility.Settings(_player.transform, _enemy.transform);
     }
 }

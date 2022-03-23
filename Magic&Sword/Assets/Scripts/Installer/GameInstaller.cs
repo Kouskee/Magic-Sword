@@ -33,6 +33,8 @@ public class GameInstaller : MonoBehaviour
     private void Start()
     {
         Install();
+        
+        Destroy(gameObject);
     }
 
     private void Install()
