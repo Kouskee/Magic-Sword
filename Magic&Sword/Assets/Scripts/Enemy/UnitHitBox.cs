@@ -5,6 +5,13 @@ namespace Enemy
 {
     public class UnitHitBox : MonoBehaviour, IAbilityVisitor
     {
+        private AiAgent _agent;
+
+        private void Start()
+        {
+            _agent = GetComponent<AiAgent>();
+        }
+
         public void Visit(FlyingStone ability)
         {
             DefaultVisit(ability);

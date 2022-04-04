@@ -9,8 +9,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform _enemyRoot;
-
     [Header("Player")] [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] [Range(0.0f, 0.3f)] private float _turnSmoothTime = 0.12f;
     [SerializeField] private float _speedChangeRate = 10.0f;
@@ -29,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     // player
     private float _speed;
-    private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
     private float _timerStrafe;
@@ -47,13 +44,19 @@ public class PlayerController : MonoBehaviour
     private CharacterController _controller;
     private InputController _input;
     private Transform _player;
+    private Camera _camera;
 
-    void Start()
+    private void Awake()
     {
         _hasAnimator = TryGetComponent(out _animator);
         _input = GetComponent<InputController>();
         _controller = GetComponent<CharacterController>();
         _player = GetComponent<Transform>();
+        _camera = Camera.main;
+    }
+
+    void Start()
+    {
         DOTween.Init();
     }
 
@@ -68,8 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleRotation()
     {
-        var subtractVectors = (_enemyRoot.position - transform.position).normalized;
-        var angle = Quaternion.LookRotation(subtractVectors, Vector3.right).eulerAngles.y;
+        var angle = Quaternion.LookRotation(_camera.transform.forward, Vector3.right).eulerAngles.y;
         _targetRotation = Mathf.Atan2(_input.move.x, _input.move.y) * Mathf.Rad2Deg + angle;
 
         _smoothTurn = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _turnSmoothVelocity, _turnSmoothTime);

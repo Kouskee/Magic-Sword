@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class SpawnAbility : MonoBehaviour
 {
-    private PlayerController _player;
-    private RandomMoveBot _enemy;
+    private Transform _player;
+    private Transform _enemy;
 
-    public void Initialize(PlayerController player, RandomMoveBot enemy)
+    public void Initialize(Transform player, Transform enemy)
     {
         _player = player;
         _enemy = enemy;
@@ -18,6 +18,6 @@ public class SpawnAbility : MonoBehaviour
         prefab.TryGetComponent<IAnimationAbility>(out var animationAbility);
         prefab.TryGetComponent<TriggerZone>(out var triggerZone);
         triggerZone.Initialize(ability);
-        animationAbility.Settings(_player.transform, _enemy.transform);
+        animationAbility.Settings(_player.transform, _enemy);
     }
 }

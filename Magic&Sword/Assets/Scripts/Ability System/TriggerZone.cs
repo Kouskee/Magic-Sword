@@ -12,7 +12,7 @@ public class TriggerZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.TryGetComponent(out IAbilityVisitor abilityVisitor);
-
+        Debug.Log(abilityVisitor);
         _ability.Accept(abilityVisitor);
     }
     

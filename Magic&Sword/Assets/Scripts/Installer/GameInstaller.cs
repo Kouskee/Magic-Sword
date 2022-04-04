@@ -7,8 +7,8 @@ using UnityEngine.Serialization;
 
 public class GameInstaller : MonoBehaviour
 {
-    [FoldoutGroup("Players")][SerializeField] private PlayerController _playerController;
-    [FoldoutGroup("Players")][SerializeField] private RandomMoveBot _enemy;
+    [FoldoutGroup("Characters")][SerializeField] private PlayerController _playerController;
+    [FoldoutGroup("Characters")][SerializeField] private AiAgent _enemy;
     
     [FoldoutGroup("Ability")][SerializeField] private PlayerAbility _playerAbility;
     [FoldoutGroup("Ability")][SerializeField] private SpawnAbility _spawnAbility;
@@ -52,6 +52,6 @@ public class GameInstaller : MonoBehaviour
         _inventory = _inventoryInstaller.Install(abilities, _id.Length);
 
         _playerAbility.Initialize(_energy, _inventory, _spawnAbility, _animator);
-        _spawnAbility.Initialize(_playerController, _enemy);
+        _spawnAbility.Initialize(_playerController.transform, _enemy.transform);
     }
 }
