@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enemy;
+using UnityEngine;
 
 public class TriggerZone : MonoBehaviour
 {
@@ -11,9 +12,8 @@ public class TriggerZone : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        other.TryGetComponent(out IAbilityVisitor abilityVisitor);
-        Debug.Log(abilityVisitor);
-        _ability.Accept(abilityVisitor);
+        other.TryGetComponent(out UnitHitBox _unitHitBox);
+        Debug.Log(_unitHitBox);
     }
     
 }

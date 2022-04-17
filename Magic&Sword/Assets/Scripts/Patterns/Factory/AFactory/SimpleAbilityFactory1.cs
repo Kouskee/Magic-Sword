@@ -3,9 +3,9 @@ using System.Linq;
 
 public class DimpleAbilityFactory : IAbilityFactory
 {
-    private readonly DimpleAbilityConfig[] _dimpleAbilityConfigs;
+    private readonly AbilityConfig[] _dimpleAbilityConfigs;
 
-    public DimpleAbilityFactory(IEnumerable<DimpleAbilityConfig> dimpleAbilityConfigs)
+    public DimpleAbilityFactory(IEnumerable<AbilityConfig> dimpleAbilityConfigs)
     {
         _dimpleAbilityConfigs = dimpleAbilityConfigs.ToArray();
     }

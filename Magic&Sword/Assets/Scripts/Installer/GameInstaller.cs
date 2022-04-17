@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Data;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -28,6 +30,8 @@ public class GameInstaller : MonoBehaviour
     {
         _inventoryInstaller = new InventoryInstaller();
         _abilityFactoryInstaller = GetComponent<AbilityFactoryInstaller>();
+        
+        DataActivePrefabs.Prefabs = _prefabAbility;
     }
 
     private void Start()
@@ -42,16 +46,29 @@ public class GameInstaller : MonoBehaviour
         _abilityFacade = _abilityFactoryInstaller.Install();
 
         var abilities = new IAbility[_id.Length];
-        for (int i = 0; i < _id.Length; i++)
+        var icons = new Sprite[_id.Length];
+        var configs = Resources.LoadAll<AbilityConfig>("RAbilities/Wizard");
+        var sprites = new Dictionary<string, Sprite>();
+
+        foreach (var config in configs)
         {
+            sprites.Add(config.Id, config.Icon);
+        }
+        
+        for (var i = 0; i < _id.Length; i++)
+        {
+            if (sprites.ContainsKey(_id[i]))
+                icons[i] = sprites[_id[i]];
+
             var ability = _abilityFacade.Create(_id[i]);
             abilities[i] = ability;
-            abilities[i].Prefab = _prefabAbility[i];
         }
 
-        _inventory = _inventoryInstaller.Install(abilities, _id.Length);
+        _inventory = _inventoryInstaller.Install(abilities, _id.Length, icons);
 
         _playerAbility.Initialize(_energy, _inventory, _spawnAbility, _animator);
         _spawnAbility.Initialize(_playerController.transform, _enemy.transform);
+
+        Instantiate(_playerAbility.gameObject);
     }
 }

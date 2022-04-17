@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea30ebf0a13b0a2479cb325a8aa9e03f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1672e848569f3054fb4a207a9ddfc720, type: 3}
   m_Name: DimpleAbilityConfig 1
   m_EditorClassIdentifier: 
   _id: Ability/dimple/1

@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &469956626131360120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469956626131360122}
+  - component: {fileID: 469956626131360123}
+  - component: {fileID: 469956626131360127}
+  m_Layer: 0
+  m_Name: GameInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &469956626131360122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469956626131360120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469956626131360123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469956626131360120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940f9139c0ac81f4fa63067824d938a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 0}
+  _enemy: {fileID: 0}
+  _playerAbility: {fileID: 0}
+  _spawnAbility: {fileID: 0}
+  _animator: {fileID: 0}
+  _energy: {fileID: 0}
+  _prefabAbility:
+  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
+  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
+  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
+  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
+  _id:
+  - FlyingStone/0
+  - Ability/dimple/0
+  - FlyingStone/1
+  - Ability/dimple/1
+--- !u!114 &469956626131360127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469956626131360120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5be46392924d22902741a1c2c05cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flyingStoneConfig:
+  - {fileID: 11400000, guid: 9ab82cc0fa98d4e40909267c27fbc0d6, type: 2}
+  - {fileID: 11400000, guid: 9dd74714e7baa0a4dbabcc097cf025ce, type: 2}
+  _dimpleSpellConfig:
+  - {fileID: 11400000, guid: ef06e0f3d5898354a867f11cab4dffea, type: 2}
+  - {fileID: 11400000, guid: 903fc3fee0a58cb4eb0e4c23dd8c73ad, type: 2}

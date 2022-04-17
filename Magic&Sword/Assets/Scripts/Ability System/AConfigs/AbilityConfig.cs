@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "FlyingStoneConfig", menuName = "Ability/FlyingStoneConfig")]
-public class FlyingStoneConfig : ScriptableObject
+[CreateAssetMenu(fileName = "AbilityConfig", menuName = "Ability/AbilityConfig")]
+public class AbilityConfig : ScriptableObject
 {
     [Header("Description")] 
     [SerializeField] private string _id;

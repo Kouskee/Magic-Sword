@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +23,7 @@ public class AbilityInput : MonoBehaviour
 
     private void AbilityPerformed(float button)
     {
-        int id = (int)button;
+        var id = (int)button;
         UseAbility(id);
     }
     

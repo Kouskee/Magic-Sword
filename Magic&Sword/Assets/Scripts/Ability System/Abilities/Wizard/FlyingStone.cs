@@ -17,21 +17,14 @@ public class FlyingStone : IAbility
         
         _canCastAfterTime = CoolDown + Time.time;
         return true;
-
     }
 
     public float Cost { get; }
     public float CoolDown { get; }
     public int Damage { get; }
-    public GameObject Prefab { get; set; }
 
     public void Use()
     {
         
-    }
-
-    public void Accept(IAbilityVisitor visitor)
-    {
-        visitor.Visit(this);
     }
 }

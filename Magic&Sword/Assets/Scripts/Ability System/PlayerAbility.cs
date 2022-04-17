@@ -1,6 +1,5 @@
-using System;
+using Patterns.Factory;
 using UnityEngine;
-using Debug = System.Diagnostics.Debug;
 
 public class PlayerAbility : MonoBehaviour
 {
@@ -8,6 +7,7 @@ public class PlayerAbility : MonoBehaviour
     private Energy _energy;
     private Inventory _inventory;
     private SpawnAbility _spawnAbility;
+    private AbilityPrefabFactory _prefabFactory;
     
     private static readonly int IsCast = Animator.StringToHash("Cast");
     private static readonly int SwapCast = Animator.StringToHash("SwapCast");
@@ -25,11 +25,16 @@ public class PlayerAbility : MonoBehaviour
         _spawnAbility = spawnAbility;
     }
 
+    private void Start()
+    {
+        _prefabFactory = new AbilityPrefabFactory();
+    }
+
     private void OnGetPressedAbility(int id)
     {
         var ability = _inventory.GetItem(id);
         var cost = ability.Cost;
-        var prefabAbility = ability.Prefab;
+        var prefabAbility = _prefabFactory.GetPrefab(id);
 
         if (_energy.CanCast(cost))
             CallUseAbility(ability, cost, prefabAbility, id);
@@ -39,7 +44,7 @@ public class PlayerAbility : MonoBehaviour
     {
         if (!ability.CanUse()) return;
         
-        bool isCast = _animator.GetBool(IsCast);
+        var isCast = _animator.GetBool(IsCast);
         if(isCast) return;
         _spawnAbility.SpawnAbilityPrefab(prefab, ability);
         ability.Use();

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class FlyingStoneFactory : IAbilityFactory
 {
-    private readonly FlyingStoneConfig[] _simpleAbilityConfigs;
+    private readonly AbilityConfig[] _simpleAbilityConfigs;
 
-    public FlyingStoneFactory(IEnumerable<FlyingStoneConfig> simpleAbilityConfigs)
+    public FlyingStoneFactory(IEnumerable<AbilityConfig> simpleAbilityConfigs)
     {
         _simpleAbilityConfigs = simpleAbilityConfigs.ToArray();
     }

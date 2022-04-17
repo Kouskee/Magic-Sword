@@ -525,7 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaa33ca836474e41bd5e5333487155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyRoot: {fileID: 0}
   _moveSpeed: 3
   _turnSmoothTime: 0.12
   _speedChangeRate: 10
