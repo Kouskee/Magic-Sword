@@ -448,6 +448,7 @@ GameObject:
   - component: {fileID: 7079853052919103637}
   - component: {fileID: 7724890365126768984}
   - component: {fileID: 1925640646558292006}
+  - component: {fileID: 8727124980594812291}
   - component: {fileID: 1981614519107381813}
   - component: {fileID: 326194204442268793}
   - component: {fileID: 8804515994775463694}
@@ -525,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaa33ca836474e41bd5e5333487155b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 3
+  _moveSpeed: 4
   _turnSmoothTime: 0.12
   _speedChangeRate: 10
   _strafeSpeed: 35
@@ -546,6 +547,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   strafe: 0
+--- !u!114 &8727124980594812291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372044705797770668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e62506cd591bb84eb3f7103c7a02a9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1981614519107381813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigLayers:
-  - m_Rig: {fileID: 0}
+  - m_Rig: {fileID: 2792089448872727800}
     m_Active: 1
   m_Effectors: []
 --- !u!114 &8804515994775463694
@@ -2166,7 +2179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7516646297731386332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.595, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1747867037616068374}

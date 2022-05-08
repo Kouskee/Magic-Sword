@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 469956626131360122}
   - component: {fileID: 469956626131360123}
   - component: {fileID: 469956626131360127}
+  - component: {fileID: 845606490}
+  - component: {fileID: 469956625079159731}
   m_Layer: 0
   m_Name: GameInstaller
   m_TagString: Untagged
@@ -45,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerController: {fileID: 0}
-  _enemy: {fileID: 0}
   _playerAbility: {fileID: 0}
   _spawnAbility: {fileID: 0}
   _animator: {fileID: 0}
@@ -58,8 +59,18 @@ MonoBehaviour:
   _id:
   - FlyingStone/0
   - Ability/dimple/0
-  - FlyingStone/1
+  - Freezing/0
   - Ability/dimple/1
+  _inventorySlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _slotsShadow:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &469956626131360127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +85,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flyingStoneConfig:
   - {fileID: 11400000, guid: 9ab82cc0fa98d4e40909267c27fbc0d6, type: 2}
-  - {fileID: 11400000, guid: 9dd74714e7baa0a4dbabcc097cf025ce, type: 2}
+  _freezingConfig:
+  - {fileID: 11400000, guid: 6b43c9a6884b1a348ab95dddadd74d04, type: 2}
   _dimpleSpellConfig:
   - {fileID: 11400000, guid: ef06e0f3d5898354a867f11cab4dffea, type: 2}
   - {fileID: 11400000, guid: 903fc3fee0a58cb4eb0e4c23dd8c73ad, type: 2}
+--- !u!114 &845606490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469956626131360120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4edd88b95e3b7345842e221d40c16d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetGroup: {fileID: 0}
+--- !u!114 &469956625079159731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469956626131360120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae40d9fee997304d9b805b7e8b607e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 194303815530623306, guid: 5d96253373dd5a442a34f544757dced3, type: 3}
+  _spawners:
+  - {fileID: 0}

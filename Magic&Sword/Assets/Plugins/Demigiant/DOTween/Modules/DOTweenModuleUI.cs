@@ -655,6 +655,11 @@ namespace DG.Tweening
                 return to.anchoredPosition + localPoint - pivotDerivedOffset;
             }
         }
-	}
+
+        public static void DOFillAmount(this Image target)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 #endif

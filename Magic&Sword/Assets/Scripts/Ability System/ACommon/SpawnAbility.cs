@@ -1,4 +1,4 @@
-using System;
+using Manager;
 using UnityEngine;
 
 public class SpawnAbility : MonoBehaviour
@@ -6,11 +6,10 @@ public class SpawnAbility : MonoBehaviour
     private Transform _player;
     private Transform _enemy;
 
-    public void Initialize(Transform player, Transform enemy)
-    {
-        _player = player;
-        _enemy = enemy;
-    }
+    private void Awake() => 
+        GlobalEventManager.OnSwapTargetEnemy.AddListener(unit => _enemy = unit);
+    
+    public void Initialize(Transform player) => _player = player;
 
     public void SpawnAbilityPrefab(GameObject prefabAility, IAbility ability)
     {

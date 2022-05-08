@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FlyingStone : IAbility
+{
+    private float _canCastAfterTime = float.MinValue;
+
+    public FlyingStone(TypeDamage type, float cooldown, float cost)
+    {
+        TypeDamage = type;
+        CoolDown = cooldown;
+        Cost = cost;
+    }
+
+    public List<IDebuff> Debuffs() => null;
+
+    public bool CanUse()
+    {
+        if (!(_canCastAfterTime <= Time.time)) return false;
+        
+        _canCastAfterTime = CoolDown + Time.time;
+        return true;
+    }
+
+    public float Cost { get; }
+    public float CoolDown { get; }
+    public TypeDamage TypeDamage { get; }
+}

@@ -1,11 +1,11 @@
-using UnityEngine;
+using System.Collections.Generic;
 
 public interface IAbility
 {
     float Cost { get; }
     float CoolDown { get; }
-    int Damage { get; }
+    TypeDamage TypeDamage { get; }
     
-    void Use();
+    List<IDebuff> Debuffs();
     bool CanUse();
 }

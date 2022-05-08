@@ -29,7 +29,7 @@ public class AbilityInput : MonoBehaviour
     
     private void UseAbility(int id)
     {
-        EventManager.SendPressedButtonAbilityK(id);
+        EventManager.OnPressedAbilityKeyboard.Invoke(id);
     }
 
     private void OnDisable()

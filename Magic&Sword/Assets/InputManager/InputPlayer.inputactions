@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SwapEnemy",
+                    "type": "Button",
+                    "id": "7f892b25-555d-4e66-a880-2d8dc07d5132",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -251,6 +260,28 @@
                     "processors": "",
                     "groups": "Keyboard and mouse",
                     "action": "Strafe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3dcb2157-0859-4aa8-a911-f98f3c8fe614",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "Scale(factor=-1)",
+                    "groups": "Keyboard and mouse",
+                    "action": "SwapEnemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd78d6d0-0cdb-4b28-ba7d-8600f73be11d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "Scale",
+                    "groups": "Keyboard and mouse",
+                    "action": "SwapEnemy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

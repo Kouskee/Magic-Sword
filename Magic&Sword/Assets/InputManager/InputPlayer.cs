@@ -53,6 +53,15 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SwapEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f892b25-555d-4e66-a880-2d8dc07d5132"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -275,6 +284,28 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                     ""action"": ""Strafe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3dcb2157-0859-4aa8-a911-f98f3c8fe614"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=-1)"",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""SwapEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd78d6d0-0cdb-4b28-ba7d-8600f73be11d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale"",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""SwapEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -309,6 +340,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_CastAbility = m_CharacterControls.FindAction("CastAbility", throwIfNotFound: true);
         m_CharacterControls_Strafe = m_CharacterControls.FindAction("Strafe", throwIfNotFound: true);
+        m_CharacterControls_SwapEnemy = m_CharacterControls.FindAction("SwapEnemy", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -371,6 +403,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_CastAbility;
     private readonly InputAction m_CharacterControls_Strafe;
+    private readonly InputAction m_CharacterControls_SwapEnemy;
     public struct CharacterControlsActions
     {
         private @InputPlayer m_Wrapper;
@@ -378,6 +411,7 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @CastAbility => m_Wrapper.m_CharacterControls_CastAbility;
         public InputAction @Strafe => m_Wrapper.m_CharacterControls_Strafe;
+        public InputAction @SwapEnemy => m_Wrapper.m_CharacterControls_SwapEnemy;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -396,6 +430,9 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 @Strafe.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
                 @Strafe.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
                 @Strafe.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnStrafe;
+                @SwapEnemy.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnSwapEnemy;
+                @SwapEnemy.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnSwapEnemy;
+                @SwapEnemy.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnSwapEnemy;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -409,6 +446,9 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
                 @Strafe.started += instance.OnStrafe;
                 @Strafe.performed += instance.OnStrafe;
                 @Strafe.canceled += instance.OnStrafe;
+                @SwapEnemy.started += instance.OnSwapEnemy;
+                @SwapEnemy.performed += instance.OnSwapEnemy;
+                @SwapEnemy.canceled += instance.OnSwapEnemy;
             }
         }
     }
@@ -436,5 +476,6 @@ public partial class @InputPlayer : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnCastAbility(InputAction.CallbackContext context);
         void OnStrafe(InputAction.CallbackContext context);
+        void OnSwapEnemy(InputAction.CallbackContext context);
     }
 }

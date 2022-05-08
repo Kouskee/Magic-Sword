@@ -1,19 +1,23 @@
-﻿using Enemy;
+﻿using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 public class TriggerZone : MonoBehaviour
 {
+    private List<IDebuff> _debuffs;
     private IAbility _ability;
 
-    public void Initialize(IAbility ability)
-    {
-        _ability = ability;
-    }
-    
+    public void Initialize(IAbility ability) => _ability = ability;
+
     private void OnTriggerEnter(Collider other)
     {
-        other.TryGetComponent(out UnitHitBox _unitHitBox);
-        Debug.Log(_unitHitBox);
+        if (!other.TryGetComponent(out IUnitDebuff enemy)) return;
+        
+        _debuffs = _ability.Debuffs();
+        if(_debuffs == null) return;
+        foreach (var debuff in _debuffs)
+        {
+            enemy.AddDebuff(debuff);
+        }
     }
-    
 }

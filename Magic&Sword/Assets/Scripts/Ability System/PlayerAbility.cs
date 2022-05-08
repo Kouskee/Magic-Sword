@@ -1,3 +1,4 @@
+using Manager;
 using Patterns.Factory;
 using UnityEngine;
 
@@ -43,11 +44,13 @@ public class PlayerAbility : MonoBehaviour
     private void CallUseAbility(IAbility ability, float cost, GameObject prefab, int id)
     {
         if (!ability.CanUse()) return;
-        
+
         var isCast = _animator.GetBool(IsCast);
         if(isCast) return;
+        
+        GlobalEventManager.OnUseAbility.Invoke(id);
+        
         _spawnAbility.SpawnAbilityPrefab(prefab, ability);
-        ability.Use();
         _energy.StealEnergy(cost);
 
         _animator.SetBool(IsCast, true);

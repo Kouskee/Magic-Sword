@@ -62,7 +62,7 @@ ModelImporter:
       - time: 1
         functionName: StartAnimationIsOver
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 6e9f45500fbaa454a8a15d6101561d0a, type: 3}
+        objectReferenceParameter: {fileID: 11500000, guid: a779c12f07f445469ee19cf1c53dd1e7, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
