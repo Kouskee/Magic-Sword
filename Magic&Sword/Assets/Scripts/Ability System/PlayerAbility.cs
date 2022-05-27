@@ -18,7 +18,7 @@ public class PlayerAbility : MonoBehaviour
         EventManager.OnPressedAbilityKeyboard += OnGetPressedAbility;
     }
 
-    public void Initialize(Energy energy, Inventory inventory, SpawnAbility spawnAbility, Animator animator)
+    public void Init(Energy energy, Inventory inventory, SpawnAbility spawnAbility, Animator animator)
     {
         _animator = animator;
         _energy = energy;

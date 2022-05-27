@@ -650,7 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6960164737727378065}
-  - component: {fileID: 8048497741203850022}
+  - component: {fileID: 4893675522963319619}
   m_Layer: 0
   m_Name: EnemyCameraRoot
   m_TagString: Untagged
@@ -672,7 +672,7 @@ Transform:
   m_Father: {fileID: 318446145172690629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8048497741203850022
+--- !u!114 &4893675522963319619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -879,7 +879,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897225609294827238}
-  - component: {fileID: 9206972113197303699}
   m_Layer: 0
   m_Name: mixamorig:RightHand
   m_TagString: Untagged
@@ -905,19 +904,6 @@ Transform:
   m_Father: {fileID: 2338140617760130182}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9206972113197303699
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2760215262783806511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2869873077872330455
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Character;
 using Data;
 using Installer;
 using Sirenix.OdinInspector;
@@ -8,7 +9,10 @@ using UnityEngine.UI;
 
 public class GameInstaller : MonoBehaviour
 {
-    [FoldoutGroup("Characters")][SerializeField] private PlayerController _playerController;
+    [FoldoutGroup("MainObjects")] [SerializeField] private GameManager _gameManager;
+    [FoldoutGroup("MainObjects")] [SerializeField] private PoolObject _poolObject;
+    
+    [FoldoutGroup("Characters")][SerializeField] private CharacterMovementController _characterMovementController;
     
     [FoldoutGroup("Ability")][SerializeField] private PlayerAbility _playerAbility;
     [FoldoutGroup("Ability")][SerializeField] private SpawnAbility _spawnAbility;
@@ -18,6 +22,8 @@ public class GameInstaller : MonoBehaviour
     [FoldoutGroup("Settings Ability")][SerializeField] private GameObject[] _prefabAbility;
     [FoldoutGroup("Settings Ability")][SerializeField, Min(4)] private string[] _id;
 
+    [FoldoutGroup("Inventory")] [SerializeField] private Image _healthUi;
+    [FoldoutGroup("Inventory")] [SerializeField] private Image _energyUi;
     [FoldoutGroup("Inventory")] [SerializeField] private Image[] _inventorySlots;
     [FoldoutGroup("Inventory")] [SerializeField] private Image[] _slotsShadow;
     [FoldoutGroup("Inventory")] [SerializeField] private Image _strafeShadow;
@@ -48,14 +54,15 @@ public class GameInstaller : MonoBehaviour
 
     private void Install()
     {
-        var health = _playerController.GetComponent<HealthCharacter>();
+        var health = _characterMovementController.GetComponent<HealthCharacter>();
         
         _gameController = GameController.Singleton;
         
-        health.Initialize(_gameController);
+        health.Init(_gameController, _healthUi);
         _abilityFacade = _abilityFactoryInstaller.Install();
-        _spawnInstaller.Install();
-        _choiceEnemyInstaller.Install(_playerController.transform, _spawnInstaller.GetRootsCamera(), _spawnInstaller.GetUnits(), _gameController);
+        _spawnInstaller.Init();
+        var switchTargetUnit = _choiceEnemyInstaller.Install(_characterMovementController.transform, 
+            _spawnInstaller.GetRootsCamera(), _spawnInstaller.GetUnits(), _gameController);
 
         var abilities = new IAbility[_id.Length];
         var icons = new Sprite[_id.Length];
@@ -78,9 +85,11 @@ public class GameInstaller : MonoBehaviour
 
         _inventory = _inventoryInstaller.Install(abilities, icons, _id.Length);
 
-        new StrafeVisualisation(_strafeShadow);
-        new InventoryVisualisation(_inventory, _inventorySlots, _slotsShadow);
-        _playerAbility.Initialize(_energy, _inventory, _spawnAbility, _animator);
-        _spawnAbility.Initialize(_playerController.transform);
+        var inventoryVis = new InventoryVisualisation(_inventory, _inventorySlots, _slotsShadow);
+        var strafeVis = new StrafeVisualisation(_strafeShadow);
+        _gameManager.Init(inventoryVis, strafeVis, switchTargetUnit);
+        _energy.Init(_energyUi);
+        _playerAbility.Init(_energy, _inventory, _spawnAbility, _animator);
+        _spawnAbility.Init(_characterMovementController.transform, _poolObject);
     }
 }

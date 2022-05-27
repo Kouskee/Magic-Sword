@@ -31,8 +31,6 @@ public class SwitchTargetUnit
         var inputPlayer = new InputPlayer();
         inputPlayer.CharacterControls.Enable();
         inputPlayer.CharacterControls.SwapEnemy.performed += OnSwapUnit;
-        
-        GlobalEventManager.OnDestroyTargetEnemy.AddListener(OnDestroyTargetEnemy);
     }
 
     private void OnSwapUnit(InputAction.CallbackContext obj)
@@ -107,7 +105,7 @@ public class SwitchTargetUnit
         GlobalEventManager.OnSwapTargetEnemy.Invoke(_currentUnit);
     }
     
-    private void OnDestroyTargetEnemy(Unit unit)
+    public void OnDestroyTargetEnemy(Unit unit)
     {
         var index= _units.IndexOf(unit);
         _units.Remove(unit);

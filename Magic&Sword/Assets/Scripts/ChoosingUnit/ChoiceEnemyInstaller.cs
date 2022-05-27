@@ -14,7 +14,7 @@ public class ChoiceEnemyInstaller : MonoBehaviour
     private SwitchTargetUnit _switchTargetUnit;
     private GameController _gameController;
 
-    public void Install(Transform playerController, List<Transform> unitsCameraRoots, List<Unit> units, GameController gameController)
+    public SwitchTargetUnit Install(Transform playerController, List<Transform> unitsCameraRoots, List<Unit> units, GameController gameController)
     {
         _unitsCameraRoots = unitsCameraRoots;
         _playerController = playerController;
@@ -27,7 +27,7 @@ public class ChoiceEnemyInstaller : MonoBehaviour
         }
         
         _switchTargetUnit = new SwitchTargetUnit(_unitsCameraRoots, _units, _targetGroup, _playerController, _gameController);
-        
         _switchTargetUnit.CloseUnit();
+        return _switchTargetUnit;
     }
 }

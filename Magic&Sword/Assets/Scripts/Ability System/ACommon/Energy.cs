@@ -1,10 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Energy : MonoBehaviour
 {
-    private readonly float _minEnergy = 0, _maxEnergy = 100f;
+    private Image _energyUi;
     private float _energy;
-    
+
+    private readonly float _minEnergy = 0, _maxEnergy = 100f;
+
+    public void Init(Image energyUi)
+    {
+        _energyUi = energyUi;
+    }
+
     private void Start()
     {
         _energy = _maxEnergy;
@@ -12,19 +20,20 @@ public class Energy : MonoBehaviour
 
     private void Update()
     {
-        if (_energy < _maxEnergy)
-            _energy = Mathf.Clamp(_energy + Time.deltaTime * 2, _minEnergy, _maxEnergy);
+        if (_energy >= _maxEnergy) return;
+
+        _energy += Mathf.Clamp(Time.deltaTime * 2, _minEnergy, _maxEnergy);
+        _energyUi.fillAmount = _energy / 100;
     }
 
     public void StealEnergy(float costAbility)
     {
         _energy = Mathf.Clamp(_energy - costAbility, _minEnergy, _maxEnergy);
+        _energyUi.fillAmount = _energy / 100;
     }
 
     public bool CanCast(float costSpell)
     {
-        if (_energy > costSpell)
-            return true;
-        return false;
+        return _energy > costSpell;
     }
 }

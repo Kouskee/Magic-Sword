@@ -446,8 +446,9 @@ GameObject:
   - component: {fileID: 1747867037616068374}
   - component: {fileID: 6248337802129804597}
   - component: {fileID: 7079853052919103637}
+  - component: {fileID: 5184939440009798898}
   - component: {fileID: 7724890365126768984}
-  - component: {fileID: 1925640646558292006}
+  - component: {fileID: 4683135614767991763}
   - component: {fileID: 8727124980594812291}
   - component: {fileID: 1981614519107381813}
   - component: {fileID: 326194204442268793}
@@ -514,6 +515,21 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &5184939440009798898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372044705797770668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bd957b0d4947e5b3c548e4f63d2b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnSmoothTime: 0.12
+  _durationStrafe: 0.4
+  _cooldownStrafe: 2
 --- !u!114 &7724890365126768984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +549,7 @@ MonoBehaviour:
   _gravity: -15
   _durationStrafe: 0.4
   _cooldownStrafe: 2
---- !u!114 &1925640646558292006
+--- !u!114 &4683135614767991763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -542,11 +558,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1372044705797770668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 413b50258b5cb2645adf9fec5fcc2137, type: 3}
+  m_Script: {fileID: 11500000, guid: 61d1f6535cae40bda58487e686cf4404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
-  strafe: 0
 --- !u!114 &8727124980594812291
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,25 +1,37 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Enemy
 {
     public class DealDamageUnit : MonoBehaviour
     {
-        private BoxCollider _boxCollider;
-
+        private Transform _player;
+        private HealthCharacter _health;
+        
         private const float DAMAGE = 25;
 
-        private void Awake() => _boxCollider = GetComponentInChildren<BoxCollider>();
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!other.TryGetComponent(out HealthCharacter health)) return;
-            
-            health.TakeDamage(DAMAGE);
+        public void Init(Transform player)
+        { 
+            _player = player;
+            player.TryGetComponent(out _health);
         }
-        
 
-        public void TurnOnDamage() => _boxCollider.enabled = true;
-        public void TurnOffDamage() => _boxCollider.enabled = false;
+        public void TurnOnDamage() => StartCoroutine(DealDamage());
+        public void TurnOffDamage() => StopCoroutine(DealDamage());
+
+        private IEnumerator DealDamage()
+        {
+            while (true)
+            {
+                if(Vector2.Distance(_player.position, transform.position) >= 1.5f)
+                    yield return new WaitForSeconds(.1f);
+                else
+                {
+                    _health.TakeDamage(DAMAGE);
+                    yield break;
+                }
+                
+            }
+        }
     }
 }

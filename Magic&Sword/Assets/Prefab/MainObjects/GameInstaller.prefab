@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940f9139c0ac81f4fa63067824d938a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameManager: {fileID: 0}
+  _poolObject: {fileID: 0}
   _playerController: {fileID: 0}
   _playerAbility: {fileID: 0}
   _spawnAbility: {fileID: 0}
@@ -53,14 +55,16 @@ MonoBehaviour:
   _energy: {fileID: 0}
   _prefabAbility:
   - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
-  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
-  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
-  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
+  - {fileID: 7124233960328330642, guid: dd3c686fc9a82374da9de17b65d6c15d, type: 3}
+  - {fileID: 4175355497261159080, guid: 039683f4c458e1a428beb861212d6a75, type: 3}
+  - {fileID: 5122785548027868413, guid: d56ceb2066a00ae4a8a784d8a2fb02b8, type: 3}
   _id:
   - FlyingStone/0
   - Ability/dimple/0
   - Freezing/0
   - Ability/dimple/1
+  _healthUi: {fileID: 0}
+  _energyUi: {fileID: 0}
   _inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -71,6 +75,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _strafeShadow: {fileID: 0}
 --- !u!114 &469956626131360127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,4 +122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 194303815530623306, guid: 5d96253373dd5a442a34f544757dced3, type: 3}
   _spawners:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}

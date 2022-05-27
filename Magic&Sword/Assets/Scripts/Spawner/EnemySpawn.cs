@@ -2,15 +2,15 @@ using System.Collections.Generic;
 using Enemy;
 using UnityEngine;
 
-public class EnemySpawn : MonoBehaviour
+public class EnemySpawn
 {
     private List<Unit> _units;
     private List<Transform> _rootsCamera;
 
-    private Unit _unit;
-    private Transform[] _spawners;
+    private readonly Unit _unit;
+    private readonly Transform[] _spawners;
     
-    public void Install(Unit unit, Transform[] spawners)
+    public EnemySpawn(Unit unit, Transform[] spawners)
     {
         _unit = unit;
         _spawners = spawners;
@@ -23,7 +23,7 @@ public class EnemySpawn : MonoBehaviour
     {
         foreach (var spawner in _spawners)
         {
-            var unit = Instantiate(_unit, spawner);
+            var unit = Object.Instantiate(_unit, spawner);
             unit.transform.position = spawner.position;
             
             _units.Add(unit);

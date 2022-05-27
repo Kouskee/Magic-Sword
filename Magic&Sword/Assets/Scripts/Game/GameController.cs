@@ -6,13 +6,8 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        if (!Singleton)
-        {
+        if (!Singleton) 
             Singleton = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-            Destroy(gameObject);
     }
 
     public void WinGame()

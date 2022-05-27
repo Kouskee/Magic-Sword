@@ -1,22 +1,39 @@
 using Manager;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpawnAbility : MonoBehaviour
 {
+    private PoolObject _poolObject;
     private Transform _player;
-    private Transform _enemy;
+    private Transform _unit;
 
-    private void Awake() => 
-        GlobalEventManager.OnSwapTargetEnemy.AddListener(unit => _enemy = unit);
-    
-    public void Initialize(Transform player) => _player = player;
+    private void Awake() =>
+        GlobalEventManager.OnSwapTargetEnemy.AddListener(unit => _unit = unit);
 
-    public void SpawnAbilityPrefab(GameObject prefabAility, IAbility ability)
+    public void Init(Transform player, PoolObject poolObject)
     {
-        var prefab = Instantiate(prefabAility);
-        prefab.TryGetComponent<IAnimationAbility>(out var animationAbility);
-        prefab.TryGetComponent<TriggerZone>(out var triggerZone);
-        triggerZone.Initialize(ability);
-        animationAbility.Settings(_player.transform, _enemy);
+        _poolObject = poolObject;
+        _player = player;
+    }
+    
+    public void SpawnAbilityPrefab(GameObject prefabAbility, IAbility ability)
+    {
+        var prefab = _poolObject.GetObject(prefabAbility.name);
+
+        if (prefab.TryGetComponent<ISettingsAbility>(out var settingsAbility))
+            settingsAbility.Settings(_player.transform, _unit);
+        var count = settingsAbility.Count();
+        if (count != 0)
+        {
+            for (var i = 0; i < count-1; i++)
+            {
+                var prefabs = _poolObject.GetObject(prefabAbility.name);
+                if (prefabs.TryGetComponent<ISettingsAbility>(out var settingsAbilitys))
+                    settingsAbilitys.Settings(_player.transform, _unit, i);
+            }
+        }
+        if (prefab.TryGetComponent<TriggerZone>(out var triggerZone))
+            triggerZone.Initialize(ability);
     }
 }

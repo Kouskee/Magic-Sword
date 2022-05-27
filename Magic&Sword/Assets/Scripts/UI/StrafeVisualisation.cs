@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Manager;
 using UnityEngine.UI;
 
 namespace UI
@@ -8,14 +7,9 @@ namespace UI
     {
         private readonly Image _strafeImageBg;
     
-        public StrafeVisualisation(Image strafeImageBg)
-        {
-            _strafeImageBg = strafeImageBg;
+        public StrafeVisualisation(Image strafeImageBg) => _strafeImageBg = strafeImageBg;
 
-            GlobalEventManager.OnStrafe.AddListener(OnStrafe);
-        }
-
-        private void OnStrafe(float duration)
+        public void OnStrafe(float duration)
         {
             _strafeImageBg.fillAmount = 1;
             _strafeImageBg.DOFillAmount(0, duration).SetEase(Ease.Linear);

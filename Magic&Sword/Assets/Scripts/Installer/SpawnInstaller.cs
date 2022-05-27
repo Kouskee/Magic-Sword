@@ -7,8 +7,6 @@ namespace Installer
 {
     public class SpawnInstaller : MonoBehaviour
     {
-        [SerializeField] private GameObject _spawner;
-
         [FoldoutGroup("Enemies")][SerializeField] private Unit _unit;
         [FoldoutGroup("Enemies")][SerializeField] private Transform[] _spawners;
         
@@ -19,14 +17,10 @@ namespace Installer
         
         private void Awake()
         {
-            var spawner = Instantiate(_spawner);
-            
-            _enemySpawn = spawner.GetComponent<EnemySpawn>();
-            
-            _enemySpawn.Install(_unit, _spawners);
+            _enemySpawn = new EnemySpawn(_unit, _spawners);
         }
 
-        public void Install()
+        public void Init()
         {
             _enemySpawn.Spawn(out _units, out _rootsCamera);
         }

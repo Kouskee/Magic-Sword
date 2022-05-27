@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Manager;
 using UnityEngine.UI;
 
 namespace UI
@@ -16,14 +15,10 @@ namespace UI
             _inventory = inventory;
             _icons = icons;
             _imagesShadow = imagesShadow;
-
-            Start();
         }
 
-        private void Start()
+        public void Start()
         {
-            GlobalEventManager.OnUseAbility.AddListener(OnUseAbility); 
-        
             for (var i = 0; i < _icons.Length; i++)
             {
                 var icon = _inventory.GetIcon(i);
@@ -31,11 +26,11 @@ namespace UI
             }
         }
 
-        private void OnUseAbility(int id)
+        public void OnUseAbility(int id)
         {
             var ability = _inventory.GetItem(id);
             var image = _imagesShadow[id];
-        
+
             image.fillAmount = 1;
             image.DOFillAmount(0, ability.CoolDown).SetEase(Ease.Linear);
         }

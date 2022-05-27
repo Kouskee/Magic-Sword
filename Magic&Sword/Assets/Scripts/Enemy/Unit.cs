@@ -21,6 +21,8 @@ namespace Enemy
         public void Initialize(Transform player)
         {
             _player = player;
+            TryGetComponent(out DealDamageUnit dealDamageUnit);
+            dealDamageUnit.Init(_player);
         }
 
         private void Awake() => TryGetComponent(out _agent);
