@@ -6,12 +6,11 @@ namespace Character
     public class CharacterAnimationController : MonoBehaviour
     {
         private static readonly int AnimSpeed = Animator.StringToHash("Speed");
-        private static readonly int AnimStrafe = Animator.StringToHash("Strafe");
-        
+
         private Animator _animator;
 
         private void Awake() => TryGetComponent(out _animator);
-        
+
         public void SetMove(float velocity)
         {
             _animator.SetFloat(AnimSpeed, velocity);
@@ -19,12 +18,11 @@ namespace Character
 
         public void SetStrafe(bool isStrafe)
         {
-            _animator.SetBool(AnimStrafe, isStrafe);
+            _animator.speed = isStrafe ? 0 : 1;
         }
 
         public void SetDeath()
         {
-            
         }
     }
 }

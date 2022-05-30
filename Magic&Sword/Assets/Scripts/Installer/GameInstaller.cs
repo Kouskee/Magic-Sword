@@ -60,7 +60,7 @@ public class GameInstaller : MonoBehaviour
         
         health.Init(_gameController, _healthUi);
         _abilityFacade = _abilityFactoryInstaller.Install();
-        _spawnInstaller.Init();
+        _spawnInstaller.Spawn();
         var switchTargetUnit = _choiceEnemyInstaller.Install(_characterMovementController.transform, 
             _spawnInstaller.GetRootsCamera(), _spawnInstaller.GetUnits(), _gameController);
 

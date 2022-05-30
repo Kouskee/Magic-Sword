@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using System;
+using Manager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -59,7 +60,7 @@ namespace Character
                     _canStrafeAfterTime = _cooldownStrafe;
                     _canRotate = false;
                     
-                    _movementController.Strafe(_durationStrafe, _targetRotation);
+                    _movementController.Strafe(_targetRotation);
                     _animationController.SetStrafe(true);
                     
                     _canStrafe = false;
@@ -68,6 +69,7 @@ namespace Character
                 else if (!_strafe)
                 {
                     if (_timerStrafe <= 0)
+                    
                         _canStrafe = true;
                 }
             }

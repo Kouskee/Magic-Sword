@@ -20,7 +20,7 @@ namespace Installer
             _enemySpawn = new EnemySpawn(_unit, _spawners);
         }
 
-        public void Init()
+        public void Spawn()
         {
             _enemySpawn.Spawn(out _units, out _rootsCamera);
         }

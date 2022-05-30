@@ -1,4 +1,4 @@
-using DG.Tweening;
+using System;
 using UnityEngine;
 
 namespace Character
@@ -16,18 +16,14 @@ namespace Character
         private float _animVelocity;
 
         private CharacterController _controller;
-        private Transform _player;
 
         private const float TERMINAL_VELOCITY = 53.0f;
-        
+
         private void Awake()
         {
             _controller = GetComponent<CharacterController>();
-            _player = transform;
         }
 
-        private void Start() => DOTween.Init();
-        
         private void Update() => Gravity();
 
         public float Move(Vector2 move, float targetRotation)
@@ -54,15 +50,15 @@ namespace Character
             return _animVelocity;
         }
 
-        public void Strafe(float durationStrafe, float targetRotation )
+        public void Strafe(float targetRotation )
         {
             var targetDirection = Quaternion.Euler(0.0f, targetRotation, 0.0f) * Vector3.forward;
             _controller.Move(targetDirection.normalized * (_strafeSpeed * Time.deltaTime) +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            _player.DORotate(new Vector3(0, _player.transform.eulerAngles.y + 360, 0), durationStrafe, RotateMode.FastBeyond360)
-                .SetEase(Ease.Linear);
-            _player.DOScale(new Vector3(0.7f, 0.7f, 1), durationStrafe * 0.5f).SetLoops(2, LoopType.Yoyo);
+            // _player.DORotate(new Vector3(0, _player.transform.eulerAngles.y + 360, 0), durationStrafe, RotateMode.FastBeyond360)
+            //     .SetEase(Ease.Linear);
+            // _player.DOScale(new Vector3(0.7f, 0.7f, 1), durationStrafe * 0.5f).SetLoops(2, LoopType.Yoyo);
         }
 
         private void Gravity()
