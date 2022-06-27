@@ -15,6 +15,6 @@ MonoBehaviour:
   _health: 100
   _debuffResist:
   - TypeDamage: 1
-    Resist: 62
+    Resist: 60
   - TypeDamage: 0
-    Resist: 0
+    Resist: 50

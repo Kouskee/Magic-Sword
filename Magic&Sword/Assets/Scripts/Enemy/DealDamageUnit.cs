@@ -1,4 +1,5 @@
 using System.Collections;
+using Character;
 using UnityEngine;
 
 namespace Enemy
@@ -16,8 +17,11 @@ namespace Enemy
             player.TryGetComponent(out _health);
         }
 
-        public void TurnOnDamage() => StartCoroutine(DealDamage());
-        public void TurnOffDamage() => StopCoroutine(DealDamage());
+        public void TurnOnDamage() =>
+            StartCoroutine(DealDamage());
+        
+        public void TurnOffDamage() =>
+            StopAllCoroutines();
 
         private IEnumerator DealDamage()
         {

@@ -10,8 +10,9 @@ public class PlayerAbility : MonoBehaviour
     private SpawnAbility _spawnAbility;
     private AbilityPrefabFactory _prefabFactory;
     
-    private static readonly int IsCast = Animator.StringToHash("Cast");
-    private static readonly int SwapCast = Animator.StringToHash("SwapCast");
+    private static readonly int Moving = Animator.StringToHash("isMoving");
+    private static readonly int Attack = Animator.StringToHash("Attack");
+    private static readonly int IsAttack = Animator.StringToHash("isAttack");
 
     private void Awake()
     {
@@ -36,7 +37,6 @@ public class PlayerAbility : MonoBehaviour
         var ability = _inventory.GetItem(id);
         var cost = ability.Cost;
         var prefabAbility = _prefabFactory.GetPrefab(id);
-
         if (_energy.CanCast(cost))
             CallUseAbility(ability, cost, prefabAbility, id);
     }
@@ -45,7 +45,7 @@ public class PlayerAbility : MonoBehaviour
     {
         if (!ability.CanUse()) return;
 
-        var isCast = _animator.GetBool(IsCast);
+        var isCast = _animator.GetBool(IsAttack);
         if(isCast) return;
         
         GlobalEventManager.OnUseAbility.Invoke(id);
@@ -53,8 +53,9 @@ public class PlayerAbility : MonoBehaviour
         _spawnAbility.SpawnAbilityPrefab(prefab, ability);
         _energy.StealEnergy(cost);
 
-        _animator.SetBool(IsCast, true);
-        _animator.SetInteger(SwapCast, id);
+        _animator.SetBool(Moving, false);
+        _animator.SetBool(IsAttack, true);
+        _animator.SetTrigger(Attack);
     }
 
     private void OnDestroy()

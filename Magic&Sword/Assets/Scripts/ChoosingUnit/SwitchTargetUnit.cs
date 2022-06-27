@@ -53,7 +53,7 @@ public class SwitchTargetUnit
             minDistance = distance;
             count = i;
         }
-
+        
         CurrentUnit(_unitsCamera[count], count);
     }
 
@@ -67,7 +67,7 @@ public class SwitchTargetUnit
         var playerPosition = _player.position;
         
         unitsCamera.Remove(_currentUnit);
-        
+
         for (var i = 0; i < unitsCamera.Count; i++)
         {
             var anotherUnit = unitsCamera[i].position;

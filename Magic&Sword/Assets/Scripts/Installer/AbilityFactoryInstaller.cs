@@ -1,6 +1,4 @@
-﻿using System;
-using Patterns.Factory.AFactories;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AbilityFactoryInstaller : MonoBehaviour
 {
@@ -10,9 +8,9 @@ public class AbilityFactoryInstaller : MonoBehaviour
 
     public AbilityFactoryFacade Install()
     {
-        var flyingStoneFactory = new FlyingStoneFactory(_flyingStoneConfig);
-        var freezingFactory = new FreezingFactory(_freezingConfig);
-        var dimpleFactory = new DimpleAbilityFactory(_dimpleSpellConfig);
+        var flyingStoneFactory = new AbilityFactory(_flyingStoneConfig);
+        var freezingFactory = new AbilityFactory(_freezingConfig);
+        var dimpleFactory = new AbilityFactory(_dimpleSpellConfig);
         var abilityFactories = new IAbilityFactory[]
         {
             dimpleFactory,

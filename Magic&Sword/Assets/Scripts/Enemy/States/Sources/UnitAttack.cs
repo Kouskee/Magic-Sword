@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Character;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,7 +13,9 @@ namespace Enemy.States.Sources
         private Animator _animator;
         private NavMeshAgent _agent;
 
-        private readonly int _isAttack = Animator.StringToHash("IsAttack");
+        private readonly int _isAttack = Animator.StringToHash("isAttack");
+        private readonly int _attack = Animator.StringToHash("Attack");
+        private readonly int _isMoving = Animator.StringToHash("isMoving");
 
         public override void Init(float duration = default)
         {
@@ -20,7 +23,9 @@ namespace Enemy.States.Sources
             Unit.TryGetComponent(out _animator);
             _unitTransform = Unit.transform;
             _player = Player;
-            _animator.SetBool(_isAttack, true);
+
+            _animator.SetTrigger(_attack);
+            EnableAttack(true);
         }
 
         public override IEnumerator UpdateDelay()
@@ -30,9 +35,15 @@ namespace Enemy.States.Sources
                 yield return base.UpdateDelay();
                
                 if (_agent.stoppingDistance >= Vector3.Distance(_unitTransform.position, _player.position)) continue;
-                _animator.SetBool(_isAttack, false);
+                EnableAttack(false);
                 IsFinished = true;
             }
+        }
+
+        private void EnableAttack(bool enable)
+        {
+            _animator.SetBool(_isAttack, enable);
+            _animator.SetBool(_isMoving, !enable);
         }
     }
 }

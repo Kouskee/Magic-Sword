@@ -78,13 +78,6 @@ namespace Enemy
         
         public void Stun(float time) => SetState(_stunUnit, time);
 
-        public bool AnimationIsOver { get; private set; }
-        
         public bool CurrentUnit { get; set; }
-
-        public void StartAnimationIsOver()
-        {
-            AnimationIsOver = true;
-        }
     }
 }

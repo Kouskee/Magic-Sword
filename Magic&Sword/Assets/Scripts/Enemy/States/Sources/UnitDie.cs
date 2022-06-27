@@ -8,14 +8,14 @@ namespace Enemy.States.Sources
     {
         private Animator _animator;
 
-        private readonly int _animDying = Animator.StringToHash("IsDying");
+        private readonly int _animDying = Animator.StringToHash("Dying");
 
         public override void Init(float duration = default)
         {
             GlobalEventManager.OnDestroyTargetEnemy.Invoke(Unit);
             
             Unit.TryGetComponent(out _animator);
-            _animator.SetBool(_animDying, true);
+            _animator.SetTrigger(_animDying);
             Destroy(Unit);
         }
     }

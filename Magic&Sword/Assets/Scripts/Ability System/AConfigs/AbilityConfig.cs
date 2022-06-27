@@ -7,6 +7,7 @@ public class AbilityConfig : ScriptableObject
     [SerializeField] private string _id;
     [SerializeField] private TypeDamage _typeDamage;
     [SerializeField] private Sprite _icon;
+    [SerializeField] private GameObject _prefab;
 
     [Header("Attribute")] 
     [SerializeField] private float _cost;
@@ -15,6 +16,7 @@ public class AbilityConfig : ScriptableObject
     public string Id => _id;
     public TypeDamage TypeDamage => _typeDamage;
     public Sprite Icon => _icon;
+    public GameObject Prefab => _prefab;
     public float Cost => _cost;
     public float Cooldown => 1 / _castRate;
 }

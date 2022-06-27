@@ -12,7 +12,7 @@ namespace Patterns.Factory
         {
             for (var i = 0; i < 4; i++)
             {
-                _prefabs.Add(i, DataActivePrefabs.Prefabs[i]);
+                _prefabs.Add(i, DataActiveAbilities.Abilities[i].Prefab);
             }
         }
 

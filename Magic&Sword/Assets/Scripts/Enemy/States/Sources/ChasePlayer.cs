@@ -17,10 +17,10 @@ namespace Enemy.States.Sources
         private Animator _animator;
         private float _durationSlowed;
         private float _speed;
-        private float _distanceToUnit;
+        private float _distanceToPlayer;
         private bool _isCurrentUnit;
 
-        private readonly int _animSpeed = Animator.StringToHash("Speed");
+        private readonly int _animSpeed = Animator.StringToHash("Velocity");
 
         private const float STOPPING_DISTANCE = 2;
         private const float RANDOM_POINT_RADIUS = 4f;
@@ -47,11 +47,10 @@ namespace Enemy.States.Sources
                 yield return base.UpdateDelay();
 
                 if (IsFinished) continue;
-                if (!Unit.AnimationIsOver) continue;
 
-                _distanceToUnit = Vector3.Distance(_unitTransform.position, _player.position);
+                _distanceToPlayer = Vector3.Distance(_unitTransform.position, _player.position);
 
-                if (_agent.stoppingDistance >= _distanceToUnit)
+                if (_agent.stoppingDistance >= _distanceToPlayer)
                 {
                     Exit();
                     continue;
@@ -71,14 +70,15 @@ namespace Enemy.States.Sources
         private void WhereToFollow()
         {
             _agent.stoppingDistance = 0;
-            var distanceToTarget = Vector3.Distance(_target, _player.position);
+            var distancePlayerToTarget = Vector3.Distance(_target, _player.position);
+            var disToTarget = Vector3.Distance(_unitTransform.position, _target);
 
             switch (_isCurrentUnit)
             {
                 case true:
-                    if (_distanceToUnit > RANDOM_POINT_RADIUS)
+                    if (_distanceToPlayer > RANDOM_POINT_RADIUS)
                     {
-                        if (distanceToTarget > RANDOM_POINT_RADIUS)
+                        if (distancePlayerToTarget > RANDOM_POINT_RADIUS)
                             _target = RandomPoint(_player.position);
                     }
                     else
@@ -86,9 +86,9 @@ namespace Enemy.States.Sources
 
                     break;
                 case false:
-                    if (Vector3.Distance(_unitTransform.position, _target) > 0.5f && _distanceToUnit > STOPPING_DISTANCE)
+                    if (disToTarget > 0.5f && _distanceToPlayer > STOPPING_DISTANCE)
                     {
-                        if (distanceToTarget > RADIUS_BEHIND_CAMERA || Vector3.Distance(_unitTransform.position, _target) < _distanceToUnit)
+                        if (distancePlayerToTarget > RADIUS_BEHIND_CAMERA)
                             _target = RandomPoint(_player.position - _camera.transform.forward * RADIUS_BEHIND_CAMERA);
                     }
                     else
@@ -119,11 +119,7 @@ namespace Enemy.States.Sources
                 if (float.IsInfinity(randomPoint.y)) continue;
 
                 _agent.CalculatePath(randomPoint, _navMeshPath);
-                if (_navMeshPath.status == NavMeshPathStatus.PathComplete &&
-                    !NavMesh.Raycast(_player.position, randomPoint, out navMeshHit, NavMesh.AllAreas))
-                {
-                    isGeneratePoint = true;
-                }
+                isGeneratePoint = true;
             }
 
             return randomPoint;

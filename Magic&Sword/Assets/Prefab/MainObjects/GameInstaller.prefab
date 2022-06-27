@@ -48,22 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 0}
-  _poolObject: {fileID: 0}
   _characterMovementController: {fileID: 0}
+  _animator: {fileID: 0}
   _playerAbility: {fileID: 0}
   _spawnAbility: {fileID: 0}
-  _animator: {fileID: 0}
   _energy: {fileID: 0}
-  _prefabAbility:
-  - {fileID: 480955052804432571, guid: e146ca215d4bfcb4eab83bcd2f30f44e, type: 3}
-  - {fileID: 7124233960328330642, guid: dd3c686fc9a82374da9de17b65d6c15d, type: 3}
-  - {fileID: 4175355497261159080, guid: 039683f4c458e1a428beb861212d6a75, type: 3}
-  - {fileID: 5122785548027868413, guid: d56ceb2066a00ae4a8a784d8a2fb02b8, type: 3}
-  _id:
-  - FlyingStone/0
-  - Ability/dimple/0
-  - Freezing/0
-  - Ability/dimple/1
   _healthUi: {fileID: 0}
   _energyUi: {fileID: 0}
   _inventorySlots:
@@ -121,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae40d9fee997304d9b805b7e8b607e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unit: {fileID: 1491488702649936675, guid: e5dab3fe0e4745244a7053f6fbd55430, type: 3}
+  _unit: {fileID: 6505391178409120676, guid: cb03f213c41aa654396df7039a29721a, type: 3}
   _spawners:
   - {fileID: 0}
   - {fileID: 0}
