@@ -1,29 +1,27 @@
 using System.Collections.Generic;
 using System.Linq;
+using Ability_System.AConfigs;
 
-public class AbilityFactory : IAbilityFactory
+namespace Ability_System.Factory.AFactories
 {
-    private readonly AbilityConfig[] _abilityConfigs;
-
-    public AbilityFactory(IEnumerable<AbilityConfig> abilityConfigs)
+    public class AbilityFactory : IAbilityFactory
     {
-        _abilityConfigs = abilityConfigs.ToArray();
-    }
+        private readonly AbilityConfig[] _abilityConfigs;
 
-    public bool CanCreate(string id)
-    {
-        var canCreate = false;
-        foreach (var config in _abilityConfigs)
+        public AbilityFactory(IEnumerable<AbilityConfig> abilityConfigs)
         {
-            canCreate = canCreate || config.Id == id;
+            _abilityConfigs = abilityConfigs.ToArray();
         }
 
-        return canCreate;
-    }
+        public IAbility[] GetAbilities()
+        {
+            var abilities = new IAbility[_abilityConfigs.Length];
+            for (var i = 0; i < _abilityConfigs.Length; i++)
+            {
+                abilities[i] = new AbilityLogic(_abilityConfigs[i].TypeDamage, _abilityConfigs[i].Cooldown, _abilityConfigs[i].Cost);
+            }
 
-    public IAbility Create(string id)
-    {
-        var config = _abilityConfigs.Single(s => s.Id == id);
-        return new AbilityLogic(config.TypeDamage, config.Cooldown, config.Cost);
+            return abilities;
+        }
     }
 }

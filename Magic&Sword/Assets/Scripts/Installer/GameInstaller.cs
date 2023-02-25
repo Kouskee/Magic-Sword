@@ -1,4 +1,7 @@
+using System;
 using System.Linq;
+using Ability_System.AConfigs;
+using Ability_System.Factory.AFactories;
 using Character;
 using Data;
 using Installer;
@@ -9,6 +12,9 @@ using UnityEngine.UI;
 
 public class GameInstaller : MonoBehaviour
 {
+    [FoldoutGroup("TEST")] [SerializeField] private bool _itTest;
+    [FoldoutGroup("TEST")] [ShowIf("_itTest")] [SerializeField] private AbilityConfig[] _abilityConfigsForTest;
+    
     [FoldoutGroup("MainObjects")] [SerializeField] private GameManager _gameManager;
     
     [FoldoutGroup("Characters")][SerializeField] private CharacterMovementController _characterMovementController;
@@ -25,23 +31,37 @@ public class GameInstaller : MonoBehaviour
     [FoldoutGroup("Inventory")] [SerializeField] private Image _strafeShadow;
     
     private GameController _gameController;
-    private AbilityFactoryInstaller _abilityFactoryInstaller;
-    private AbilityFactoryFacade _abilityFacade;
     private InventoryInstaller _inventoryInstaller;
     private Inventory _inventory;
     private ChoiceEnemyInstaller _choiceEnemyInstaller;
     private SpawnInstaller _spawnInstaller;
+    private AbilityFactory _factory;
 
     private AbilityConfig[] _abilityConfigs;
-    private readonly string[] _id = new string[4];
+
+    void OnValidate()
+    {
+        if (_abilityConfigsForTest.Length == 4) return;
+        
+        Debug.LogWarning("Don't change field's array size!");
+        Array.Resize(ref _abilityConfigsForTest, 4);
+    }
 
     private void Awake()
     {
         _inventoryInstaller = new InventoryInstaller();
-        TryGetComponent(out _abilityFactoryInstaller);
         TryGetComponent(out _spawnInstaller);
         TryGetComponent(out _choiceEnemyInstaller);
-        _abilityConfigs = DataActiveAbilities.Abilities;
+
+        if (_itTest)
+        {
+            _abilityConfigs = _abilityConfigsForTest;
+            DataActiveAbilities.Abilities = _abilityConfigs;
+        }
+        else
+            _abilityConfigs = DataActiveAbilities.Abilities;
+
+        _factory = new AbilityFactory(_abilityConfigs);
     }
 
     private void Start()
@@ -58,31 +78,19 @@ public class GameInstaller : MonoBehaviour
         _gameController = GameController.Singleton;
         
         health.Init(_gameController, _healthUi);
-        _abilityFacade = _abilityFactoryInstaller.Install();
         _spawnInstaller.Spawn();
         var switchTargetUnit = _choiceEnemyInstaller.Install(_characterMovementController.transform, 
             _spawnInstaller.GetRootsCamera(), _spawnInstaller.GetUnits(), _gameController);
 
+        var abilities = _factory.GetAbilities();
+        var icons = new Sprite[_abilityConfigs.Length];
+        
         for (var i = 0; i < _abilityConfigs.Length; i++)
         {
-            _id[i] = _abilityConfigs[i].Id;
+            icons[i] = _abilityConfigs[i].Icon;
         }
         
-        var abilities = new IAbility[_id.Length];
-        var icons = new Sprite[_id.Length];
-        var configs = Resources.LoadAll<AbilityConfig>("Abilities");
-        var images = configs.ToDictionary(config => config.Id, config => config.Icon);
-
-        for (var i = 0; i < _id.Length; i++)
-        {
-            if (images.ContainsKey(_id[i]))
-                icons[i] = images[_id[i]];
-
-            var ability = _abilityFacade.Create(_id[i]);
-            abilities[i] = ability;
-        }
-
-        _inventory = _inventoryInstaller.Install(abilities, icons, _id.Length);
+        _inventory = _inventoryInstaller.Install(abilities, icons, _abilityConfigs.Length);
 
         var poolObject = new PoolObject(_abilityConfigs.ToDictionary(config => config.Prefab.name,config => config.Prefab));
         var inventoryVis = new InventoryVisualisation(_inventory, _inventorySlots, _slotsShadow);

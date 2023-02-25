@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ability_System.AConfigs;
 using Debuffs;
 
 namespace Debufs

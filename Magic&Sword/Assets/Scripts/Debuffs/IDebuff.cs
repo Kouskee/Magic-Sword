@@ -1,4 +1,5 @@
 using System.Collections;
+using Ability_System.AConfigs;
 using Enemy;
 
 public interface IDebuff

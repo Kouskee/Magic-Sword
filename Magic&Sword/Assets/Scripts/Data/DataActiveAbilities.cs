@@ -1,3 +1,5 @@
+using Ability_System.AConfigs;
+
 namespace Data
 {
     public static class DataActiveAbilities

@@ -1,3 +1,4 @@
+using Ability_System.AConfigs;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;

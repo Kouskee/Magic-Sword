@@ -1,3 +1,4 @@
+using Ability_System.AConfigs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;

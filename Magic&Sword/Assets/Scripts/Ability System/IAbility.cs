@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Ability_System.AConfigs;
 
 public interface IAbility
 {

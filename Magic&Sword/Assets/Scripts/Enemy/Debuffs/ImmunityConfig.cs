@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ability_System.AConfigs;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Debuffs/Immunity")]

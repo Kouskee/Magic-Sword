@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -902,6 +903,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &1494864113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1072,8 +1074,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.17260897, y: 0.69201136, z: -0.6784778, w: 0.17605199}
-  m_LocalPosition: {x: -1.063579, y: 5.8544393, z: 1.0208783}
+  m_LocalRotation: {x: 0.20962246, y: 0.68060535, z: -0.668829, w: 0.21331336}
+  m_LocalPosition: {x: -1.0701504, y: 5.854379, z: 1.0161492}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1246,7 +1248,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9741518, y: 1}
+    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1262,8 +1264,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944902633}
-  m_LocalRotation: {x: 0.17260897, y: 0.69201136, z: -0.6784778, w: 0.17605199}
-  m_LocalPosition: {x: -1.1224511, y: 12.091512, z: 1.1290945}
+  m_LocalRotation: {x: 0.20962246, y: 0.68060535, z: -0.668829, w: 0.21331336}
+  m_LocalPosition: {x: -1.1276913, y: 12.091938, z: 1.0989273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1493,6 +1495,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1058481574}
     - target: {fileID: 469956626131360123, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
+      propertyPath: _itTest
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469956626131360123, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
       propertyPath: _animator
       value: 
       objectReference: {fileID: 1448838689}
@@ -1556,7 +1562,24 @@ PrefabInstance:
       propertyPath: _inventorySlots.Array.data[3]
       value: 
       objectReference: {fileID: 1233123920}
-    m_RemovedComponents: []
+    - target: {fileID: 469956626131360123, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
+      propertyPath: _abilityConfigsForTest.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ef06e0f3d5898354a867f11cab4dffea, type: 2}
+    - target: {fileID: 469956626131360123, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
+      propertyPath: _abilityConfigsForTest.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 903fc3fee0a58cb4eb0e4c23dd8c73ad, type: 2}
+    - target: {fileID: 469956626131360123, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
+      propertyPath: _abilityConfigsForTest.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ab82cc0fa98d4e40909267c27fbc0d6, type: 2}
+    - target: {fileID: 469956626131360123, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
+      propertyPath: _abilityConfigsForTest.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b43c9a6884b1a348ab95dddadd74d04, type: 2}
+    m_RemovedComponents:
+    - {fileID: 469956626131360127, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7085179b858969a45b1bd9d119baef29, type: 3}
 --- !u!1001 &7370304207940884241
 PrefabInstance:
